@@ -1,412 +1,670 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corneille Engineer | Senior Hybrid Network & Azure Cloud Infrastructure Engineer</title>
-    <meta name="description" content="Portfolio of Corneille Engineer - Senior Network & Azure Cloud Engineer with 6+ years of enterprise experience. AZ-700 Certified, CCNA-level fundamentals, Zero-Trust Hybrid Cloud Architect.">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eff6ff',
-                            400: '#38bdf8',
-                            500: '#0284c7',
-                            600: '#0078d4',
-                            700: '#0369a1',
-                            900: '#0f172a',
-                            950: '#0a0f1d',
-                        },
-                        azure: '#0089D6',
-                        cisco: '#049fd9'
-                    },
-                    fontFamily: {
-                        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- Fonts and Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(56, 189, 248, 0.15);
-        }
-        .glow-azure:hover {
-            box-shadow: 0 0 25px rgba(0, 137, 214, 0.35);
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .terminal-box {
-            background-color: #0d1117;
-            border: 1px solid #30363d;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Corneille Engineer — Senior Hybrid Network & Azure Cloud Infrastructure Engineer. AZ-700 Certified · CCNA-level Routing · Zero-Trust Hybrid Cloud Architect.">
+<title>Corneille Engineer · Senior Hybrid Network & Azure Cloud Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --bg: #07090e;
+  --bg-card: #0e121b;
+  --ink: #f1f5f9;
+  --dim: #94a3b8;
+  --cyan: #00f0ff;
+  --azure: #0089d6;
+  --line: #1e293b;
+  --line-glow: rgba(0, 240, 255, 0.25);
+  --lime: #00f0ff;
+}
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 2px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: 'Space Grotesk', sans-serif; font-size: 16px; line-height: 1.65; overflow-x: hidden; }
+::selection { background: var(--cyan); color: #07090e; }
+a { color: inherit; text-decoration: none; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* Fixed Packet Spine */
+#spine { position: fixed; left: 38px; top: 0; bottom: 0; width: 2px; background: var(--line); z-index: 5; }
+#spine .fill { position: absolute; top: 0; left: 0; width: 100%; height: 0; background: var(--cyan); box-shadow: 0 0 14px var(--cyan); }
+#spine .packet { position: absolute; left: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 18px var(--cyan), 0 0 4px #fff; top: 0; transition: top 0.05s linear; }
+@media (max-width: 768px) { #spine { left: 16px; } }
+
+/* Live Telemetry Marker */
+.marker { position: fixed; right: 26px; bottom: 24px; z-index: 40; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--dim); text-align: right; pointer-events: none; }
+.marker b { color: var(--cyan); font-size: 16px; display: block; text-shadow: 0 0 10px rgba(0,240,255,0.4); }
+
+/* Navigation */
+nav.top { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; padding: 18px 36px 18px 74px; background: rgba(7, 9, 14, 0.85); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(30, 41, 59, 0.6); }
+nav.top .logo { font-weight: 700; font-size: 17px; display: flex; items-center; gap: 10px; font-family: 'JetBrains Mono', monospace; letter-spacing: -0.02em; }
+nav.top .logo i { color: var(--azure); text-shadow: 0 0 12px var(--azure); }
+nav.top .logo span { color: var(--cyan); }
+nav.top .links { display: flex; gap: 26px; font-size: 14px; font-weight: 500; }
+nav.top .links a { color: var(--dim); transition: color .2s ease; }
+nav.top .links a:hover { color: var(--cyan); }
+.menu-btn { display: none; background: none; border: 1px solid rgba(255,255,255,.2); color: inherit; border-radius: 8px; padding: 6px 12px; font: inherit; font-size: 14px; cursor: pointer; }
+@media (max-width: 768px) {
+  nav.top { padding-left: 44px; }
+  .menu-btn { display: block; }
+  nav.top .links { display: none; position: absolute; top: calc(100% + 6px); right: 14px; flex-direction: column; gap: 0; background: #0f1422; border: 1px solid var(--line); border-radius: 14px; padding: 10px; min-width: 200px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+  nav.top .links.open { display: flex; }
+  nav.top .links a { padding: 12px 16px; font-size: 15px; }
+}
+
+.wrap { max-width: 1140px; margin: 0 auto; padding: 0 32px 0 96px; }
+@media (max-width: 768px) { .wrap { padding-left: 50px; padding-right: 20px; } }
+
+/* Hero Section */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 80px; position: relative; }
+#net3d { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 100vw; height: 100%; z-index: 0; pointer-events: none; }
+.hero-content { position: relative; z-index: 1; max-width: 780px; }
+.hero::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 100vw; z-index: 0; pointer-events: none; background: radial-gradient(ellipse 65% 60% at 30% 50%, rgba(7,9,14,0.88), rgba(7,9,14,0.3) 60%, transparent); }
+.hero .tag { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--cyan); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
+.hero h1 { font-size: clamp(40px, 7.5vw, 92px); font-weight: 700; line-height: 1.02; letter-spacing: -0.04em; margin: 18px 0; }
+.hero h1 .line { display: block; overflow: hidden; }
+.hero h1 .line span { display: inline-block; transform: translateY(110%); animation: rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
+.hero h1 .line:nth-child(2) span { animation-delay: .12s; }
+.hero h1 .line:nth-child(3) span { animation-delay: .24s; color: transparent; -webkit-text-stroke: 1.5px var(--cyan); }
+@keyframes rise { to { transform: none; } }
+.hero p.lead { max-width: 620px; color: var(--dim); font-size: clamp(16px, 2vw, 19px); line-height: 1.6; }
+.hero .btns { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: 99px; font-weight: 700; font-size: 14.5px; transition: all .25s ease; cursor: pointer; }
+.btn.solid { background: var(--cyan); color: #07090e; box-shadow: 0 0 20px rgba(0, 240, 255, 0.25); }
+.btn.solid:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0, 240, 255, 0.45); }
+.btn.line { border: 1.5px solid var(--line); color: var(--ink); background: rgba(14, 18, 27, 0.6); backdrop-filter: blur(8px); }
+.btn.line:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
+.scroll-hint { position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%); color: var(--dim); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .2em; animation: bob 2s infinite; }
+@keyframes bob { 50% { transform: translate(-50%, 8px); } }
+
+/* Marquee */
+.marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; padding: 16px 0; background: #0a0d14; }
+.marquee .track { display: flex; gap: 48px; white-space: nowrap; animation: scrollx 24s linear infinite; font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: var(--dim); }
+.marquee .track b { color: var(--cyan); }
+@keyframes scrollx { to { transform: translateX(-50%); } }
+
+/* Sections */
+section { padding: 100px 0; position: relative; }
+.sec-tag { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--cyan); letter-spacing: .16em; text-transform: uppercase; margin-bottom: 6px; }
+h2.big { font-size: clamp(32px, 5vw, 56px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.08; margin: 12px 0 36px; }
+
+/* Interactive Terminal Box */
+.terminal-wrapper { margin-top: 40px; background: #0a0d16; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 30px rgba(0, 137, 214, 0.1); }
+.terminal-header { background: #111726; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); }
+.terminal-dots { display: flex; gap: 7px; }
+.terminal-dot { width: 11px; height: 11px; border-radius: 50%; }
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
+.terminal-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--dim); }
+.terminal-body { padding: 22px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #cbd5e1; min-height: 220px; line-height: 1.7; }
+.terminal-line { margin-bottom: 6px; }
+.t-prompt { color: var(--cyan); }
+.t-cmd { color: #fff; font-weight: 700; }
+.t-output { color: #94a3b8; padding-left: 14px; }
+.t-success { color: #34d399; }
+.t-accent { color: var(--cyan); }
+.terminal-input-row { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+.terminal-input { background: transparent; border: none; color: #fff; font-family: 'JetBrains Mono', monospace; font-size: 13px; outline: none; width: 100%; }
+
+/* Stats Grid */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
+@media (max-width: 768px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+.stat { background: var(--bg-card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; transition: border-color .2s; }
+.stat:hover { border-color: rgba(0, 240, 255, 0.4); }
+.stat b { font-size: clamp(30px, 4.5vw, 48px); font-weight: 700; color: var(--cyan); letter-spacing: -0.03em; display: block; line-height: 1.1; }
+.stat span { font-size: 13.5px; color: var(--dim); margin-top: 6px; display: block; }
+
+/* Skills Grid */
+.skillrows .row { border-top: 1px solid var(--line); padding: 32px 0; display: grid; grid-template-columns: 280px 1fr; gap: 24px; align-items: start; }
+.skillrows .row:last-child { border-bottom: 1px solid var(--line); }
+@media (max-width: 768px) { .skillrows .row { grid-template-columns: 1fr; gap: 14px; } }
+.skillrows h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; display: flex; align-items: center; gap: 10px; }
+.skillrows h3 i { color: var(--cyan); font-size: 18px; }
+.tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.tag-badge { border: 1px solid var(--line); background: rgba(14, 18, 27, 0.5); padding: 8px 18px; border-radius: 99px; font-size: 13.5px; color: var(--dim); transition: .2s ease; font-family: 'JetBrains Mono', monospace; }
+.tag-badge:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0, 240, 255, 0.15); }
+
+/* Experience Rows */
+.xp { display: grid; grid-template-columns: 140px 1fr; gap: 22px; border-top: 1px solid var(--line); padding: 32px 0; transition: .2s; }
+.xp:hover { padding-left: 12px; }
+.xp:last-child { border-bottom: 1px solid var(--line); }
+@media (max-width: 640px) { .xp { grid-template-columns: 1fr; gap: 8px; } }
+.xp .yrs { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--cyan); font-weight: 700; }
+.xp h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.015em; }
+.xp .org { color: var(--dim); font-size: 14.5px; margin-top: 2px; }
+.xp ul { list-style: none; margin-top: 10px; space-y: 6px; }
+.xp li { color: var(--dim); font-size: 14px; margin-bottom: 6px; position: relative; padding-left: 18px; }
+.xp li::before { content: "▹"; position: absolute; left: 0; color: var(--cyan); }
+
+/* Sticky Architecture Cards Stack */
+.stack { display: flex; flex-direction: column; gap: 24px; }
+.card { position: sticky; top: 100px; background: #0d121c; border: 1px solid var(--line); border-radius: 24px; padding: 40px; min-height: 290px; display: grid; grid-template-columns: 1fr auto; gap: 28px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); transition: border-color .2s; }
+.card:hover { border-color: rgba(0, 240, 255, 0.4); }
+@media (max-width: 768px) { .card { grid-template-columns: 1fr; padding: 28px; } }
+.card .id { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--cyan); text-transform: uppercase; letter-spacing: 0.1em; }
+.card h3 { font-size: clamp(22px, 3.4vw, 36px); font-weight: 700; letter-spacing: -0.02em; margin: 10px 0 14px; max-width: 620px; }
+.card p { color: var(--dim); max-width: 600px; font-size: 15px; }
+.card .win { color: var(--ink); font-weight: 700; margin-top: 18px; font-size: 14.5px; }
+.card .win::before { content: "→ "; color: var(--cyan); }
+.card .n { font-size: clamp(48px, 8vw, 92px); font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px var(--line); line-height: 1; font-family: 'JetBrains Mono', monospace; }
+
+/* Contact Section */
+.contact { text-align: left; padding-bottom: 80px; }
+.mail { display: inline-block; font-size: clamp(26px, 5.2vw, 56px); font-weight: 700; letter-spacing: -0.03em; border-bottom: 3px solid var(--cyan); margin: 16px 0 36px; transition: .2s; color: #fff; }
+.mail:hover { color: var(--cyan); text-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
+.meta { display: flex; flex-wrap: wrap; gap: 14px; }
+.meta span, .meta a { border: 1px solid var(--line); background: var(--bg-card); border-radius: 99px; padding: 9px 22px; font-size: 14px; color: var(--dim); transition: .2s; display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; }
+.meta a:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
+
+footer { padding: 32px 32px 32px 96px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--dim); font-size: 13px; font-family: 'JetBrains Mono', monospace; background: #06080d; }
+@media (max-width: 768px) { footer { padding-left: 50px; } }
+
+.reveal { opacity: 0; transform: translateY(30px); transition: .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+</style>
 </head>
-<body class="bg-[#070b14] text-slate-200 font-sans antialiased selection:bg-cyan-500 selection:text-white">
+<body>
 
-    <!-- Navigation Bar -->
-    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-slate-800/80 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#hero" class="flex items-center gap-2 font-mono font-bold text-lg text-white">
-                <span class="text-azure"><i class="fa-solid fa-network-wired"></i></span>
-                <span>Corneille Engineer</span>
-            </a>
-            
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
-                <a href="#skills" class="hover:text-cyan-400 transition-colors">Competencies</a>
-                <a href="#featured-project" class="hover:text-cyan-400 transition-colors">Project AetherNet</a>
-                <a href="#experience" class="hover:text-cyan-400 transition-colors">Track Record</a>
-                <a href="#contact" class="px-4 py-2 rounded-lg bg-azure hover:bg-sky-500 text-white font-semibold transition-all shadow-lg shadow-sky-900/30">Get in Touch</a>
-            </div>
+<!-- Interactive Scroll Spine & Progress Packet -->
+<div id="spine"><div class="fill"></div><div class="packet"></div></div>
+<div class="marker"><b id="pct">0%</b>telemetry synced</div>
 
-            <!-- Mobile menu button -->
-            <button id="mobileMenuBtn" class="md:hidden text-slate-400 hover:text-white text-xl">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-    </nav>
+<!-- Top Navigation -->
+<nav class="top">
+  <a class="logo" href="#">
+    <i class="fa-solid fa-network-wired"></i>
+    <span>Corneille Engineer</span>
+  </a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="navlinks" aria-label="Menu">☰ Menu</button>
+  <div class="links" id="navlinks">
+    <a href="#about">About</a>
+    <a href="#skills">Competencies</a>
+    <a href="#exp">Experience</a>
+    <a href="#work">Architecture</a>
+    <a href="#terminal">Terminal</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="relative pt-36 pb-20 md:pt-44 md:pb-32 overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-900/20 via-transparent to-transparent -z-10"></div>
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            <div class="lg:col-span-7 space-y-6 text-left">
-                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                    Bridging Enterprise <span class="gradient-text">On-Premises & Azure Cloud</span> Networks
-                </h1>
+<div class="wrap">
 
-                <p class="text-lg text-slate-400 max-w-2xl leading-relaxed">
-                    Senior Network & Cloud Infrastructure Engineer with <strong>6+ years of enterprise experience</strong>. Certified <strong class="text-sky-300">AZ-700 (Azure Network Engineer)</strong> with deep <strong class="text-cyan-300">CCNA-level routing/switching</strong>, Windows Server/Hyper-V infrastructure, and Zero-Trust cloud network architecture.
-                </p>
+<!-- Hero Section with 3D Spine-Leaf Mesh -->
+<header class="hero">
+  <canvas id="net3d" aria-hidden="true"></canvas>
+  <div class="hero-content">
+    <p class="tag">Senior Hybrid Network & Azure Cloud Infrastructure Engineer</p>
+    <h1>
+      <span class="line"><span>Bridging Enterprise</span></span>
+      <span class="line"><span>On-Premises &amp;</span></span>
+      <span class="line"><span>Azure Cloud.</span></span>
+    </h1>
+    <p class="lead">
+      6+ years engineering enterprise routing, perimeter security, and virtualization — 
+      certified <strong>AZ-700</strong> with deep <strong>CCNA-level</strong> routing/switching and Windows Server / Hyper-V infrastructure.
+    </p>
+    <div class="btns">
+      <a class="btn solid" href="#work"><i class="fa-solid fa-layer-group"></i> Explore Architecture</a>
+      <a class="btn line" href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a class="btn line" href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin text-azure"></i> LinkedIn</a>
+    </div>
+  </div>
+  <span class="scroll-hint">SCROLL ▼</span>
+</header>
 
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#featured-project" class="px-6 py-3 rounded-xl bg-azure hover:bg-sky-500 text-white font-bold flex items-center gap-2 transition-all shadow-lg shadow-sky-900/40">
-                        <i class="fa-solid fa-layer-group"></i> Explore Flagship Architecture
-                    </a>
-                    <a href="https://github.com" target="_blank" class="px-6 py-3 rounded-xl glass-panel hover:border-slate-600 text-slate-200 font-semibold flex items-center gap-2 transition-all">
-                        <i class="fa-brands fa-github"></i> GitHub Repositories
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" class="px-6 py-3 rounded-xl glass-panel hover:border-sky-500/50 text-slate-200 font-semibold flex items-center gap-2 transition-all">
-                        <i class="fa-brands fa-linkedin text-azure"></i> LinkedIn Profile
-                    </a>
-                </div>
+<!-- Running Network Telemetry Marquee -->
+<div class="marquee"><div class="track" id="mq">
+  <span><b>AZ-700</b> Certified</span>
+  <span><b>BGP</b> · OSPF Dynamic Routing</span>
+  <span><b>Azure Private DNS Resolver</b></span>
+  <span><b>Windows Server 2022</b> &amp; Hyper-V</span>
+  <span><b>Azure Firewall Premium</b> IDPS</span>
+  <span><b>Zero-Trust</b> Micro-segmentation</span>
+  <span><b>Terraform</b> + PowerShell 7</span>
+  <span><b>6+ Years</b> Enterprise Production</span>
+</div></div>
 
-                <!-- Fast Certification Chips -->
-                <div class="pt-6 flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400">
-                    <span class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800">
-                        <i class="fa-brands fa-microsoft text-azure"></i> AZ-700: Azure Network Engineer
-                    </span>
-                    <span class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800">
-                        <i class="fa-solid fa-route text-sky-400"></i> CCNA-Level Routing & Switching
-                    </span>
-                    <span class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800">
-                        <i class="fa-brands fa-windows text-blue-400"></i> Windows Server & Hyper-V
-                    </span>
-                </div>
-            </div>
+<!-- About Section -->
+<section id="about" class="about">
+  <p class="sec-tag">01 / Profile</p>
+  <h2 class="big">Architecture where downtime isn't an option.</h2>
+  <p style="font-size: clamp(18px, 2.4vw, 24px); line-height: 1.5; color: var(--dim); max-width: 860px;" class="reveal">
+    Designing and maintaining mission-critical hybrid topologies that bridge legacy on-premises datacenters with modern Azure Zero-Trust landing zones. Specialized in resolving <strong style="color: var(--cyan);">Private Link DNS split-horizon loops</strong>, automating <strong style="color: var(--cyan);">BGP over IPsec VPN tunnels</strong>, and eliminating cloud network egress waste.
+  </p>
+  
+  <div class="stats">
+    <div class="stat reveal"><b data-count="6">0</b><span>Years Enterprise IT &amp; Networking</span></div>
+    <div class="stat reveal"><b data-count="100">0</b><span>% BGP Failover Redundancy</span></div>
+    <div class="stat reveal"><b data-count="2">0</b><span>ms Avg Private Link DNS Latency</span></div>
+    <div class="stat reveal"><b data-count="0">0</b><span>Public IP Exposure on PaaS Tiers</span></div>
+  </div>
+</section>
 
-            <!-- Terminal Simulator Card -->
-            <div class="lg:col-span-5">
-                <div class="terminal-box rounded-2xl shadow-2xl overflow-hidden font-mono text-xs text-slate-300">
-                    <div class="bg-slate-900/90 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
-                            <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
-                            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
-                        </div>
-                        <span class="text-slate-500 text-[11px]">powershell - az-network-mesh</span>
-                    </div>
-                    <div class="p-5 space-y-3">
-                        <p class="text-emerald-400">PS C:\> Get-HybridNetworkTopology -Status</p>
-                        <div class="text-slate-400 pl-2 space-y-1">
-                            <p>├── OnPrem: <span class="text-white">Windows Server 2022 (Hyper-V Datacenter)</span></p>
-                            <p>├── Gateway: <span class="text-cyan-300">RRAS IPsec S2S (BGP ASN: 65010) [CONNECTED]</span></p>
-                            <p>├── Transit: <span class="text-sky-300">Azure Virtual WAN / VpnGw2AZ (ASN: 65515)</span></p>
-                            <p>├── Firewall: <span class="text-rose-300">Azure Firewall Premium (IDPS Active)</span></p>
-                            <p>└── DNS Resolver: <span class="text-emerald-300">Split-Horizon Private Link Mesh [OK]</span></p>
-                        </div>
-                        <p class="text-emerald-400 pt-2">PS C:\> Test-ZeroTrustCompliance -Scope All</p>
-                        <p class="text-cyan-300 pl-2">✔ 0 Public IPs on PaaS Data Tiers</p>
-                        <p class="text-cyan-300 pl-2">✔ Forced UDR 0.0.0.0/0 via Hub Firewall</p>
-                        <p class="text-cyan-300 pl-2">✔ BGP Dynamic Route Redundancy Verified</p>
-                        <p class="text-slate-500 pt-2 animate-pulse">_</p>
-                    </div>
-                </div>
-            </div>
+<!-- Skills Section -->
+<section id="skills">
+  <p class="sec-tag">02 / Competencies</p>
+  <h2 class="big">What I run in production.</h2>
+  <div class="skillrows">
+    <div class="row reveal">
+      <h3><i class="fa-brands fa-microsoft"></i> Azure Cloud (AZ-700)</h3>
+      <div class="tags">
+        <span class="tag-badge">Hub-and-Spoke VNets</span>
+        <span class="tag-badge">Azure Virtual WAN</span>
+        <span class="tag-badge">Azure Firewall Premium</span>
+        <span class="tag-badge">Private DNS Resolver</span>
+        <span class="tag-badge">Private Endpoints</span>
+        <span class="tag-badge">ExpressRoute &amp; VPN Gateways</span>
+        <span class="tag-badge">Application Gateway WAF v2</span>
+        <span class="tag-badge">Route Server &amp; UDRs</span>
+      </div>
+    </div>
+    <div class="row reveal">
+      <h3><i class="fa-solid fa-route"></i> Core Networking (CCNA)</h3>
+      <div class="tags">
+        <span class="tag-badge">BGP &amp; OSPF Routing</span>
+        <span class="tag-badge">VLANs / 802.1Q / STP</span>
+        <span class="tag-badge">Subnetting &amp; VLSM</span>
+        <span class="tag-badge">IPsec IKEv2 / SSL VPN</span>
+        <span class="tag-badge">Wireshark Packet Analysis</span>
+        <span class="tag-badge">NAT / PAT &amp; ACL Policies</span>
+        <span class="tag-badge">Traffic Shaping &amp; QoS</span>
+      </div>
+    </div>
+    <div class="row reveal">
+      <h3><i class="fa-brands fa-windows"></i> Systems &amp; Virtualization</h3>
+      <div class="tags">
+        <span class="tag-badge">Windows Server 2016-2022</span>
+        <span class="tag-badge">Hyper-V Virtual Switching</span>
+        <span class="tag-badge">Active Directory &amp; DNS/DHCP</span>
+        <span class="tag-badge">RRAS Hybrid Gateways</span>
+        <span class="tag-badge">NIC Teaming &amp; SR-IOV</span>
+        <span class="tag-badge">Entra ID (Azure AD) Sync</span>
+        <span class="tag-badge">PowerShell Automation</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-        </div>
-    </section>
+<!-- Experience Section -->
+<section id="exp">
+  <p class="sec-tag">03 / Experience</p>
+  <h2 class="big">6 Years, Two Core Disciplines.</h2>
+  
+  <div class="xp reveal">
+    <span class="yrs">3 Years</span>
+    <div>
+      <h3>Senior Azure &amp; Hybrid Network Engineer</h3>
+      <p class="org">Enterprise Cloud Infrastructure &amp; Hybrid Environments</p>
+      <ul>
+        <li>Architected multi-region Hub-and-Spoke VNets, Azure Firewall rules, and high-availability Site-to-Site VPN connections.</li>
+        <li>Implemented Azure Private DNS Resolver architectures seamlessly resolving on-prem AD DNS and Azure PaaS Private Endpoints.</li>
+        <li>Eliminated network security drift and optimized cloud egress bandwidth through strategic User-Defined Routes (UDRs).</li>
+        <li>Governed network-layer Entra ID Conditional Access policies and RBAC security perimeters.</li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- Key Metrics / Differentiators Bar -->
-    <section class="py-10 border-y border-slate-800/80 bg-slate-950/40">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <p class="text-3xl sm:text-4xl font-extrabold text-white font-mono">6+ Years</p>
-                <p class="text-xs uppercase tracking-wider text-slate-400 mt-1">Enterprise IT & Network Exp.</p>
-            </div>
-            <div>
-                <p class="text-3xl sm:text-4xl font-extrabold text-cyan-400 font-mono">AZ-700</p>
-                <p class="text-xs uppercase tracking-wider text-slate-400 mt-1">Azure Certified Network Eng.</p>
-            </div>
-            <div>
-                <p class="text-3xl sm:text-4xl font-extrabold text-sky-400 font-mono">CCNA</p>
-                <p class="text-xs uppercase tracking-wider text-slate-400 mt-1">Proficiency in L2/L3 Routing</p>
-            </div>
-            <div>
-                <p class="text-3xl sm:text-4xl font-extrabold text-indigo-400 font-mono">Zero-Trust</p>
-                <p class="text-xs uppercase tracking-wider text-slate-400 mt-1">Private Link & DNS Architect</p>
-            </div>
-        </div>
-    </section>
+  <div class="xp reveal">
+    <span class="yrs">3 Years</span>
+    <div>
+      <h3>IT Network Support &amp; Windows Infrastructure Engineer</h3>
+      <p class="org">Enterprise Datacenter &amp; On-Premises Systems</p>
+      <ul>
+        <li>Managed multi-VLAN switching fabrics, routing protocols, and perimeter firewall ACLs across multi-site networks.</li>
+        <li>Configured and maintained Windows Server core roles (Active Directory, DNS, DHCP, RRAS) and Hyper-V virtualization hosts.</li>
+        <li>Conducted deep packet inspection using Wireshark to resolve complex Layer 2/3 performance bottlenecks.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <!-- Core Competencies / Skill Matrix -->
-    <section id="skills" class="py-24 max-w-7xl mx-auto px-6">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <h3 class="text-3xl sm:text-4xl font-bold text-white">Full-Spectrum Hybrid Network Competencies</h3>
-            <p class="text-slate-400 mt-4">Blending deep physical/virtual switching & routing fundamentals with modern cloud automation.</p>
-        </div>
+<!-- Architecture Case Studies (Sticky Stack) -->
+<section id="work">
+  <p class="sec-tag">04 / Flagship Architectures</p>
+  <h2 class="big">Engineered for resiliency.</h2>
+  <div class="stack">
+    
+    <article class="card">
+      <div>
+        <p class="id">Architecture 01 · Flagship Project</p>
+        <h3>Project AetherNet: Azure Hybrid Zero-Trust Mesh</h3>
+        <p>Production-grade hybrid network bridging simulated on-prem Hyper-V datacenters with multi-spoke Azure infrastructure via dynamic BGP S2S VPN tunnels.</p>
+        <p class="win">Zero-Trust perimeter with deep packet inspection and zero public IP exposure</p>
+      </div>
+      <span class="n">01</span>
+    </article>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- Card 1: Cloud Networking -->
-            <div class="glass-panel p-8 rounded-2xl glow-azure transition-all duration-300">
-                <div class="w-12 h-12 rounded-xl bg-sky-950 border border-sky-500/30 flex items-center justify-center text-azure text-2xl mb-6">
-                    <i class="fa-brands fa-microsoft"></i>
-                </div>
-                <h4 class="text-xl font-bold text-white mb-2">Azure Cloud Networking (AZ-700)</h4>
-                <p class="text-sm text-slate-400 mb-6">Enterprise landing zones, routing control, and perimeter protection.</p>
-                
-                <ul class="space-y-2.5 text-xs text-slate-300 font-mono">
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-400"></i> Hub-and-Spoke / Azure Virtual WAN</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-400"></i> Azure Firewall Premium (TLS/IDPS)</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-400"></i> Azure Private DNS Resolver & Private Link</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-400"></i> ExpressRoute & S2S VPN Gateways</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-400"></i> Application Gateway (WAF v2) & ALB</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-400"></i> UDR Forced Tunneling & Route Server</li>
-                </ul>
-            </div>
+    <article class="card">
+      <div>
+        <p class="id">Architecture 02 · Hybrid DNS</p>
+        <h3>Bi-Directional Private Link DNS Resolver</h3>
+        <p>Solved the enterprise Private Link DNS loop by integrating Azure Private DNS Resolver with Windows Server 2022 Active Directory DNS forwarders.</p>
+        <p class="win">Sub-5ms resolution across on-prem and cloud PaaS without VM forwarders</p>
+      </div>
+      <span class="n">02</span>
+    </article>
 
-            <!-- Card 2: Enterprise Network Fundamentals -->
-            <div class="glass-panel p-8 rounded-2xl glow-azure transition-all duration-300">
-                <div class="w-12 h-12 rounded-xl bg-sky-950 border border-sky-500/30 flex items-center justify-center text-sky-400 text-2xl mb-6">
-                    <i class="fa-solid fa-diagram-project"></i>
-                </div>
-                <h4 class="text-xl font-bold text-white mb-2">Core Networking (CCNA Depth)</h4>
-                <p class="text-sm text-slate-400 mb-6">Solid Layer 2/3/4 packet-level foundations and troubleshooting.</p>
-                
-                <ul class="space-y-2.5 text-xs text-slate-300 font-mono">
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-sky-400"></i> BGP & OSPF Dynamic Routing</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-sky-400"></i> VLANs, 802.1Q Trunking & STP</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-sky-400"></i> Subnetting, VLSM & IP Scheme Design</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-sky-400"></i> IPsec IKEv2 / SSL VPN Architecture</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-sky-400"></i> Wireshark Deep Packet Inspection</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-sky-400"></i> NAT / PAT & Firewall Access Control (ACL)</li>
-                </ul>
-            </div>
+    <article class="card">
+      <div>
+        <p class="id">Architecture 03 · Routing &amp; High Availability</p>
+        <h3>Windows RRAS BGP Dynamic Gateway</h3>
+        <p>Configured automated BGP route advertisement between on-prem Windows RRAS (ASN 65010) and Azure VPN Gateway (ASN 65515) with active-active failover.</p>
+        <p class="win">100% automated route synchronization and zero static route maintenance</p>
+      </div>
+      <span class="n">03</span>
+    </article>
 
-            <!-- Card 3: Windows & Virtualization -->
-            <div class="glass-panel p-8 rounded-2xl glow-azure transition-all duration-300">
-                <div class="w-12 h-12 rounded-xl bg-sky-950 border border-sky-500/30 flex items-center justify-center text-blue-400 text-2xl mb-6">
-                    <i class="fa-brands fa-windows"></i>
-                </div>
-                <h4 class="text-xl font-bold text-white mb-2">Windows & Hyper-V Infrastructure</h4>
-                <p class="text-sm text-slate-400 mb-6">Datacenter system services, virtualization, and hybrid identity.</p>
-                
-                <ul class="space-y-2.5 text-xs text-slate-300 font-mono">
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-400"></i> Hyper-V Virtual Switch & NIC Teaming</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-400"></i> Windows Server AD DS, DNS & DHCP</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-400"></i> Routing & Remote Access (RRAS) Gateways</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-400"></i> Entra ID (Azure AD) Hybrid Sync</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-400"></i> Azure Compute (VMs/VMSS) & Storage</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-400"></i> PowerShell Automation & GitOps CI/CD</li>
-                </ul>
-            </div>
+    <article class="card">
+      <div>
+        <p class="id">Architecture 04 · FinOps &amp; SecOps</p>
+        <h3>Automated Network Drift &amp; FinOps Compliance Engine</h3>
+        <p>Developed custom PowerShell CI/CD tooling auditing orphaned NICs, unused public IPs, and overly permissive NSG rules on scheduled GitHub Actions pipelines.</p>
+        <p class="win">Eliminated idle resource spend and maintained continuous security compliance</p>
+      </div>
+      <span class="n">04</span>
+    </article>
 
-        </div>
-    </section>
+  </div>
+</section>
 
-    <!-- Flagship Project Showcase -->
-    <section id="featured-project" class="py-24 bg-slate-950/60 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-6">
-            
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-                <div>
-                    <h3 class="text-3xl sm:text-4xl font-bold text-white mt-1">Project AetherNet: Azure Hybrid Zero-Trust Mesh</h3>
-                </div>
-                <div class="mt-4 md:mt-0 flex gap-3">
-                    <a href="https://github.com" target="_blank" class="px-4 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:border-slate-500 text-xs font-mono text-white flex items-center gap-2">
-                        <i class="fa-brands fa-github"></i> View Source Code
-                    </a>
-                </div>
-            </div>
+<!-- Interactive CLI Terminal Simulator -->
+<section id="terminal">
+  <p class="sec-tag">05 / Interactive CLI</p>
+  <h2 class="big">Query live network telemetry.</h2>
+  <div class="terminal-wrapper reveal">
+    <div class="terminal-header">
+      <div class="terminal-dots">
+        <span class="terminal-dot dot-red"></span>
+        <span class="terminal-dot dot-yellow"></span>
+        <span class="terminal-dot dot-green"></span>
+      </div>
+      <span class="terminal-title">corneille@az-hybrid-mesh:~ (powershell 7.4)</span>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--cyan);"><i class="fa-solid fa-circle text-[8px] animate-pulse"></i> LIVE</span>
+    </div>
+    <div class="terminal-body" id="termOutput">
+      <div class="terminal-line"><span class="t-prompt">PS C:\&gt;</span> <span class="t-cmd">Get-HybridMeshStatus</span></div>
+      <div class="t-output">
+        <span class="t-success">✔ Azure VPN Gateway (ASN 65515): CONNECTED (BGP ESTABLISHED)</span><br>
+        <span class="t-success">✔ Windows Server RRAS (ASN 65010): ACTIVE (24 Routes Synchronized)</span><br>
+        <span class="t-success">✔ Azure Firewall Premium: IDPS ACTIVE (Policy: Zero-Trust-Strict)</span><br>
+        <span class="t-success">✔ Azure Private DNS Resolver: HEALTHY (Latency: 2.1ms)</span>
+      </div>
+      <div class="terminal-line" style="margin-top:10px;"><span class="t-prompt">PS C:\&gt;</span> <span class="t-dim">Type 'help', 'skills', 'certifications', 'dns', or 'ping' below...</span></div>
+    </div>
+    <div style="background:#0a0d16; padding:12px 22px; border-top:1px solid var(--line); display:flex; align-items:center; gap:8px;">
+      <span class="t-prompt font-mono text-sm">PS C:\&gt;</span>
+      <input type="text" id="termInput" class="terminal-input" placeholder="Type a command and press Enter..." autocomplete="off">
+    </div>
+  </div>
+</section>
 
-            <!-- Main Feature Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div class="lg:col-span-7 glass-panel p-8 rounded-3xl border border-sky-500/20">
-                    <h4 class="text-xl font-bold text-white mb-4">Enterprise Problem Solved</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
-                        Organizations migrating to Azure frequently face <strong class="text-sky-300">DNS forwarding loops</strong> between on-premises Active Directory and Azure Private Endpoints, along with massive <strong class="text-rose-300">FinOps egress bills</strong> caused by uninspected asymmetric traffic hairpinning.
-                    </p>
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <p class="sec-tag">06 / Contact</p>
+  <h2 class="big">Route your traffic here.</h2>
+  <a class="mail" href="mailto:your.email@example.com">your.email@example.com</a>
+  <div class="meta">
+    <span><i class="fa-solid fa-location-dot text-azure"></i> Remote / Hybrid</span>
+    <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i> GitHub ↗</a>
+    <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin text-azure"></i> LinkedIn ↗</a>
+  </div>
+</section>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono text-slate-300 mb-6">
-                        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
-                            <p class="text-cyan-400 font-bold mb-1"><i class="fa-solid fa-network-wired"></i> Split-Horizon DNS Resolver</p>
-                            <p class="text-slate-400">Sub-5ms resolution of Azure Private Link PaaS endpoints from on-prem Hyper-V without VM forwarder farms.</p>
-                        </div>
-                        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
-                            <p class="text-cyan-400 font-bold mb-1"><i class="fa-solid fa-shield-halved"></i> Azure Firewall Premium IDPS</p>
-                            <p class="text-slate-400">Zero-Trust perimeter forcing all East-West and North-South flows through deep packet inspection.</p>
-                        </div>
-                        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
-                            <p class="text-cyan-400 font-bold mb-1"><i class="fa-solid fa-arrows-split-up-and-left"></i> BGP Dynamic VPN Failover</p>
-                            <p class="text-slate-400">Dynamic route advertisement between Windows Server RRAS (ASN 65010) and Azure VNet Gateway (ASN 65515).</p>
-                        </div>
-                        <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800">
-                            <p class="text-cyan-400 font-bold mb-1"><i class="fa-solid fa-coins"></i> FinOps Network Drift Engine</p>
-                            <p class="text-slate-400">Custom PowerShell script auditing idle PIPs, unattached NICs, and over-permissive NSG rules.</p>
-                        </div>
-                    </div>
+</div>
 
-                    <div class="flex flex-wrap gap-2 text-[11px] font-mono text-cyan-300">
-                        <span class="px-2.5 py-1 rounded bg-sky-950/80 border border-sky-800">Terraform</span>
-                        <span class="px-2.5 py-1 rounded bg-sky-950/80 border border-sky-800">Azure Private DNS Resolver</span>
-                        <span class="px-2.5 py-1 rounded bg-sky-950/80 border border-sky-800">Hyper-V</span>
-                        <span class="px-2.5 py-1 rounded bg-sky-950/80 border border-sky-800">Windows Server RRAS</span>
-                        <span class="px-2.5 py-1 rounded bg-sky-950/80 border border-sky-800">BGP Dynamic Routing</span>
-                        <span class="px-2.5 py-1 rounded bg-sky-950/80 border border-sky-800">PowerShell 7</span>
-                    </div>
-                </div>
+<footer>
+  <span>© 2026 Corneille Engineer</span>
+  <span>AZ-700 Certified · 0 packets dropped</span>
+</footer>
 
-                <div class="lg:col-span-5 space-y-4">
-                    <div class="glass-panel p-6 rounded-2xl border border-slate-800">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-8 h-8 rounded-lg bg-emerald-950 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-sm">
-                                <i class="fa-solid fa-chart-line"></i>
-                            </div>
-                            <h5 class="text-sm font-bold text-white">Performance & Latency Benchmark</h5>
-                        </div>
-                        <div class="space-y-2 text-xs font-mono">
-                            <div class="flex justify-between text-slate-400">
-                                <span>Private Endpoint DNS Query:</span>
-                                <span class="text-emerald-400 font-bold">2.4 ms (Avg)</span>
-                            </div>
-                            <div class="flex justify-between text-slate-400">
-                                <span>On-Prem to Spoke VPN Latency:</span>
-                                <span class="text-emerald-400 font-bold">14.1 ms</span>
-                            </div>
-                            <div class="flex justify-between text-slate-400">
-                                <span>Firewall Egress Throughput:</span>
-                                <span class="text-emerald-400 font-bold">1.25 Gbps</span>
-                            </div>
-                        </div>
-                    </div>
+<!-- Scripts -->
+<script>
+// Marquee duplicate for seamless infinite loop
+const mq = document.getElementById('mq');
+if (mq) mq.innerHTML += mq.innerHTML;
 
-                    <div class="glass-panel p-6 rounded-2xl border border-slate-800">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-sm">
-                                <i class="fa-solid fa-code-commit"></i>
-                            </div>
-                            <h5 class="text-sm font-bold text-white">CI/CD & GitOps Integration</h5>
-                        </div>
-                        <p class="text-xs text-slate-400 mb-3">
-                            GitHub Actions workflow executing Checkov security scans, Terraform validate/plan, and scheduled network drift detection.
-                        </p>
-                        <span class="inline-flex items-center gap-1.5 text-[11px] font-mono text-emerald-400">
-                            <i class="fa-solid fa-circle-check"></i> 100% Automated Infrastructure Delivery
-                        </span>
-                    </div>
-                </div>
-            </div>
+// Scroll spine & telemetry percentage marker
+const fill = document.querySelector('#spine .fill'),
+      pk = document.querySelector('#spine .packet'),
+      pct = document.getElementById('pct'),
+      marker = document.querySelector('.marker');
 
-        </div>
-    </section>
+addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+  if (fill) fill.style.height = (p * 100) + '%';
+  if (pk) pk.style.top = `calc(${p * 100}% - 6px)`;
+  if (pct) pct.textContent = Math.round(p * 100) + '%';
+  if (marker) marker.style.opacity = p > 0.98 ? '0' : '1';
+}, { passive: true });
 
-    <!-- Professional Experience Timeline -->
-    <section id="experience" class="py-24 max-w-7xl mx-auto px-6">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <h3 class="text-3xl sm:text-4xl font-bold text-white">6 Years of Network & Cloud Engineering</h3>
-        </div>
+// Mobile Navigation
+const mb = document.querySelector('.menu-btn'), nl = document.getElementById('navlinks');
+if (mb && nl) {
+  mb.addEventListener('click', () => {
+    const open = nl.classList.toggle('open');
+    mb.setAttribute('aria-expanded', open);
+  });
+  nl.addEventListener('click', e => {
+    if (e.target.tagName === 'A') { nl.classList.remove('open'); mb.setAttribute('aria-expanded', 'false'); }
+  });
+}
 
-        <div class="max-w-4xl mx-auto space-y-8">
-            
-            <!-- Role 1 -->
-            <div class="relative pl-8 border-l-2 border-azure/40 space-y-2">
-                <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-azure border-4 border-[#070b14]"></span>
-                <div class="flex flex-wrap justify-between items-baseline">
-                    <h4 class="text-lg font-bold text-white">Senior Azure & Hybrid Network Engineer</h4>
-                    <span class="text-xs font-mono text-cyan-400">3 Years • Cloud & Hybrid Focus</span>
-                </div>
-                <p class="text-xs font-mono text-slate-400">Enterprise Infrastructure & Hybrid Migrations</p>
-                <ul class="text-sm text-slate-300 space-y-1.5 pt-2 list-disc list-inside">
-                    <li>Architected and supported enterprise Hub-and-Spoke VNets, Azure Firewall rules, and Site-to-Site VPN connections.</li>
-                    <li>Designed split-horizon DNS models integrating Windows AD DNS with Azure Private DNS Zones and Private Endpoints.</li>
-                    <li>Optimized cloud network performance and reduced egress data transfer costs through strategic UDR routing.</li>
-                    <li>Managed Azure Entra ID RBAC, Conditional Access policies, and network security perimeters.</li>
-                </ul>
-            </div>
+// Intersection Observer for scroll reveals
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-            <!-- Role 2 -->
-            <div class="relative pl-8 border-l-2 border-slate-800 space-y-2">
-                <span class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-slate-700 border-4 border-[#070b14]"></span>
-                <div class="flex flex-wrap justify-between items-baseline">
-                    <h4 class="text-lg font-bold text-white">IT Network Support & Windows Infrastructure Engineer</h4>
-                    <span class="text-xs font-mono text-slate-400">3 Years • On-Premises & Datacenter Focus</span>
-                </div>
-                <p class="text-xs font-mono text-slate-400">Enterprise IT Systems & Infrastructure Operations</p>
-                <ul class="text-sm text-slate-300 space-y-1.5 pt-2 list-disc list-inside">
-                    <li>Maintained enterprise switching, VLANs, routing protocols, and firewall ACLs across multi-site networks.</li>
-                    <li>Configured Windows Server services (Active Directory, DNS, DHCP, RRAS, Group Policy) and Hyper-V virtualization.</li>
-                    <li>Performed Wireshark packet captures and root-cause analysis for high-priority network outages.</li>
-                </ul>
-            </div>
+// Number Counters
+const ioStats = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  ioStats.unobserve(e.target);
+  const el = e.target, end = +el.dataset.count, t0 = performance.now();
+  (function step(t) {
+    const k = Math.min((t - t0) / 1200, 1);
+    el.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))) + (end >= 6 ? '+' : '');
+    if (k < 1) requestAnimationFrame(step);
+  })(t0);
+}), { threshold: .6 });
+document.querySelectorAll('[data-count]').forEach(el => ioStats.observe(el));
 
-        </div>
-    </section>
+// Interactive Terminal CLI
+const termInput = document.getElementById('termInput');
+const termOutput = document.getElementById('termOutput');
 
-    <!-- Call to Action / Contact -->
-    <section id="contact" class="py-24 border-t border-slate-800 bg-gradient-to-b from-transparent to-sky-950/20">
-        <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
-            <h3 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">Ready to Elevate Your Cloud Network Architecture?</h3>
-            <p class="text-slate-400 max-w-2xl mx-auto text-base">
-                I am actively exploring Senior Hybrid Cloud Network Architect, Azure Infrastructure Specialist, and Enterprise Network Engineering roles.
-            </p>
+if (termInput && termOutput) {
+  termInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      const val = termInput.value.trim().toLowerCase();
+      termInput.value = '';
+      if (!val) return;
+      
+      const line = document.createElement('div');
+      line.className = 'terminal-line';
+      line.innerHTML = `<span class="t-prompt">PS C:\\&gt;</span> <span class="t-cmd">${val}</span>`;
+      termOutput.appendChild(line);
 
-            <div class="flex flex-wrap justify-center gap-4 pt-4">
-                <a href="mailto:your.email@example.com" class="px-8 py-4 rounded-xl bg-azure hover:bg-sky-500 text-white font-bold flex items-center gap-3 transition-all shadow-xl shadow-sky-900/50">
-                    <i class="fa-solid fa-envelope"></i> Send an Email
-                </a>
-                <a href="https://linkedin.com" target="_blank" class="px-8 py-4 rounded-xl glass-panel hover:border-sky-500/50 text-slate-200 font-semibold flex items-center gap-3 transition-all">
-                    <i class="fa-brands fa-linkedin text-azure"></i> Connect on LinkedIn
-                </a>
-            </div>
-        </div>
-    </section>
+      const resp = document.createElement('div');
+      resp.className = 't-output';
 
-    <!-- Footer -->
-    <footer class="py-8 border-t border-slate-900 text-center text-xs font-mono text-slate-500">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>© 2026 • Corneille Engineer Portfolio</p>
-            <p class="text-slate-600">Built with Tailwind CSS • Ready for GitHub Pages</p>
-        </div>
-    </footer>
+      switch (val) {
+        case 'help':
+          resp.innerHTML = `Available commands:<br>
+          • <span class="t-accent">skills</span> - List core cloud & networking competencies<br>
+          • <span class="t-accent">certifications</span> - Display active certifications & credentials<br>
+          • <span class="t-accent">dns</span> - Query Private Link DNS resolution lifecycle<br>
+          • <span class="t-accent">ping</span> - Test packet transit between on-prem Hyper-V and Azure Hub<br>
+          • <span class="t-accent">clear</span> - Clear terminal screen`;
+          break;
+        case 'skills':
+          resp.innerHTML = `Azure Networking (AZ-700) | BGP/OSPF Routing | Windows Server 2022 | Hyper-V | Azure Firewall Premium | Private DNS Resolver | Terraform | PowerShell`;
+          break;
+        case 'certifications':
+          resp.innerHTML = `<span class="t-success">✔ Microsoft Certified: Azure Network Engineer Associate (AZ-700)</span><br>
+          <span class="t-accent">✔ CCNA-Level Core Routing & Switching (Enterprise Proficiency)</span>`;
+          break;
+        case 'dns':
+          resp.innerHTML = `Query: storage-account.privatelink.blob.core.windows.net<br>
+          Resolver: 10.100.2.4 (Azure Private DNS Resolver Inbound Endpoint)<br>
+          Resolved IP: 10.102.1.15 (Private Endpoint)<br>
+          <span class="t-success">Latency: 1.84ms | Zero public internet egress</span>`;
+          break;
+        case 'ping':
+          resp.innerHTML = `Pinging 10.100.1.4 (Azure Firewall Premium) from 10.0.10.10 (Hyper-V DC01):<br>
+          Reply from 10.100.1.4: bytes=32 time=12ms TTL=126<br>
+          Reply from 10.100.1.4: bytes=32 time=11ms TTL=126<br>
+          <span class="t-success">Ping statistics: 2 packets transmitted, 0% packet loss</span>`;
+          break;
+        case 'clear':
+          termOutput.innerHTML = '';
+          return;
+        default:
+          resp.innerHTML = `<span style="color:#f87171">Command not recognized. Type 'help' for available commands.</span>`;
+      }
+      termOutput.appendChild(resp);
+      termOutput.scrollTop = termOutput.scrollHeight;
+    }
+  });
+}
+</script>
 
+<!-- Three.js 3D Spine-Leaf Interactive Fabric Background -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function() {
+  const canvas = document.getElementById('net3d');
+  if (!canvas || !window.THREE) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true }); } catch(e) { return; }
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+
+  const CYAN = 0x00f0ff, AZURE = 0x0089d6, BG = 0x07090e;
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(BG, 10, 24);
+  const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+  camera.position.set(0, 0.9, 11);
+  camera.lookAt(0, 0, 0);
+
+  const rig = new THREE.Group(); scene.add(rig);
+  const fab = new THREE.Group(); rig.add(fab);
+  fab.position.set(1.9, 0.2, 0);
+  fab.rotation.set(-0.10, -0.42, 0);
+
+  const edgeMat = new THREE.LineBasicMaterial({ color: CYAN, transparent: true, opacity: 0.75 });
+  const edgeMatDim = new THREE.LineBasicMaterial({ color: AZURE, transparent: true, opacity: 0.35 });
+  const fillMat = new THREE.MeshBasicMaterial({ color: 0x0c111a });
+
+  function makeSwitch(w, h, d, dim) {
+    const g = new THREE.Group();
+    const geo = new THREE.BoxGeometry(w, h, d);
+    g.add(new THREE.Mesh(geo, fillMat));
+    g.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo), dim ? edgeMatDim : edgeMat));
+    return g;
+  }
+
+  const spines = [], leaves = [], hosts = [];
+  for (let i = 0; i < 4; i++) {
+    const s = makeSwitch(1.15, 0.24, 0.55);
+    s.position.set((i - 1.5) * 2.0, 2.0, 0);
+    fab.add(s); spines.push(s.position);
+  }
+  for (let i = 0; i < 8; i++) {
+    const l = makeSwitch(0.78, 0.20, 0.5);
+    l.position.set((i - 3.5) * 1.12, 0, 0);
+    fab.add(l); leaves.push(l.position);
+  }
+  for (let i = 0; i < 16; i++) {
+    const h = makeSwitch(0.30, 0.34, 0.30, true);
+    h.position.set((i - 7.5) * 0.56, -1.7, ((i % 2) - 0.5) * 0.55);
+    fab.add(h); hosts.push(h.position);
+  }
+
+  const links = [];
+  spines.forEach(s => leaves.forEach(l => links.push([s, l])));
+  hosts.forEach((h, i) => links.push([leaves[i >> 1], h]));
+  const lpos = new Float32Array(links.length * 6);
+  links.forEach(([a, b], k) => lpos.set([a.x, a.y, a.z, b.x, b.y, b.z], k * 6));
+  const lgeo = new THREE.BufferGeometry();
+  lgeo.setAttribute('position', new THREE.BufferAttribute(lpos, 3));
+  fab.add(new THREE.LineSegments(lgeo, new THREE.LineBasicMaterial({
+    color: CYAN, transparent: true, opacity: 0.15, blending: THREE.AdditiveBlending, depthWrite: false
+  })));
+
+  const grid = new THREE.GridHelper(36, 44, 0x1e293b, 0x0f172a);
+  grid.position.y = -2.6; rig.add(grid);
+
+  const glowTex = (() => {
+    const c = document.createElement('canvas'); c.width = c.height = 64;
+    const x = c.getContext('2d'), g = x.createRadialGradient(32, 32, 0, 32, 32, 32);
+    g.addColorStop(0, 'rgba(0,240,255,1)');
+    g.addColorStop(0.45, 'rgba(0,137,214,0.5)');
+    g.addColorStop(1, 'rgba(0,240,255,0)');
+    x.fillStyle = g; x.fillRect(0, 0, 64, 64);
+    return new THREE.CanvasTexture(c);
+  })();
+
+  const PK = 46, packets = [];
+  const pkMat = new THREE.SpriteMaterial({ map: glowTex, color: CYAN, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false });
+
+  function newPath() {
+    const l1 = leaves[Math.floor(Math.random() * 8)];
+    const sp = spines[Math.floor(Math.random() * 4)];
+    const l2 = leaves[Math.floor(Math.random() * 8)];
+    const hi = Math.floor(Math.random() * 16);
+    return Math.random() < 0.3 ? [hosts[hi], leaves[hi >> 1], spines[Math.floor(Math.random() * 4)]] : [l1, sp, l2];
+  }
+
+  for (let i = 0; i < PK; i++) {
+    const m = new THREE.Sprite(pkMat.clone());
+    m.scale.set(0.18, 0.18, 1);
+    packets.push({ m, path: newPath(), t: Math.random() * 2, s: 0.55 + Math.random() * 0.9 });
+    fab.add(m);
+  }
+
+  let mx = 0, my = 0, tx = 0, ty = 0;
+  addEventListener('pointermove', e => {
+    tx = (e.clientX / innerWidth - 0.5);
+    ty = (e.clientY / innerHeight - 0.5);
+  }, { passive: true });
+
+  function resize() {
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    if (canvas.width !== Math.floor(w * renderer.getPixelRatio())) {
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h; camera.updateProjectionMatrix();
+      if (w < 768) { fab.position.x = 0.3; camera.position.z = 14; }
+      else { fab.position.x = 1.9; camera.position.z = 11; }
+    }
+  }
+  addEventListener('resize', resize, { passive: true });
+
+  const clock = new THREE.Clock(); let t0 = 0;
+  (function frame() {
+    requestAnimationFrame(frame);
+    if (canvas.getBoundingClientRect().bottom < 0) return;
+    resize();
+    const dt = Math.min(clock.getDelta(), 0.05); t0 += dt;
+    fab.rotation.y = -0.42 + Math.sin(t0 * 0.18) * 0.06;
+    fab.position.y = 0.2 + Math.sin(t0 * 0.5) * 0.05;
+    mx += (tx - mx) * 0.05; my += (ty - my) * 0.05;
+    rig.rotation.y = mx * 0.22; rig.rotation.x = my * 0.12;
+    packets.forEach(p => {
+      p.t += p.s * dt;
+      if (p.t >= 2) { p.t = 0; p.path = newPath(); }
+      const seg = p.t < 1 ? 0 : 1, tt = p.t % 1;
+      p.m.position.lerpVectors(p.path[seg], p.path[seg + 1], tt);
+      p.m.material.opacity = Math.sin(Math.min(p.t / 2, 1) * Math.PI) * 0.9 + 0.1;
+    });
+    renderer.render(scene, camera);
+  })();
+})();
+</script>
 </body>
 </html>
