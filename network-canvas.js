@@ -1,6 +1,7 @@
 /**
  * ============================================================================
- * Corneille Engineer · Hybrid Transit Matrix Background Engine (network-canvas.js)
+ * Corneille Malonga · Hybrid Transit Matrix Background Engine (network-canvas.js)
+ * Supports dynamic Light & Dark mode palette adjustments
  * ============================================================================
  */
 
@@ -14,16 +15,10 @@
     let packets = [];
 
     // Configuration
-    const NODE_COUNT = window.innerWidth < 768 ? 28 : 55;
+    const NODE_COUNT = window.innerWidth < 768 ? 26 : 52;
     const MAX_DISTANCE = 160;
     const MOUSE_RADIUS = 180;
-    const PACKET_SPEED = 1.2;
-
-    const COLORS = {
-        azure: 'rgba(0, 120, 212, ',
-        cyan: 'rgba(0, 210, 255, ',
-        line: 'rgba(30, 41, 59, '
-    };
+    const PACKET_SPEED = 1.1;
 
     let mouse = { x: null, y: null };
 
@@ -43,6 +38,11 @@
         mouse.x = null;
         mouse.y = null;
     });
+
+    // Check Theme
+    function isLightMode() {
+        return document.documentElement.getAttribute('data-theme') === 'light';
+    }
 
     // Node Class (Represents Cloud Gateways, On-Prem DC Nodes, PaaS endpoints)
     class Node {
@@ -70,18 +70,25 @@
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < MOUSE_RADIUS) {
                     const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
-                    this.x += (dx / dist) * force * 1.5;
-                    this.y += (dy / dist) * force * 1.5;
+                    this.x += (dx / dist) * force * 1.4;
+                    this.y += (dy / dist) * force * 1.4;
                 }
             }
         }
 
         draw() {
+            const light = isLightMode();
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = this.type === 'cloud' ? 'rgba(0, 120, 212, 0.7)' : 'rgba(0, 210, 255, 0.8)';
-            ctx.shadowBlur = this.radius > 2 ? 8 : 0;
-            ctx.shadowColor = this.type === 'cloud' ? '#0078d4' : '#00d2ff';
+            
+            if (light) {
+                ctx.fillStyle = this.type === 'cloud' ? 'rgba(0, 102, 184, 0.75)' : 'rgba(2, 132, 199, 0.85)';
+            } else {
+                ctx.fillStyle = this.type === 'cloud' ? 'rgba(0, 120, 212, 0.75)' : 'rgba(0, 210, 255, 0.85)';
+                ctx.shadowBlur = this.radius > 2 ? 8 : 0;
+                ctx.shadowColor = this.type === 'cloud' ? '#0078d4' : '#00d2ff';
+            }
+            
             ctx.fill();
             ctx.shadowBlur = 0;
         }
@@ -105,11 +112,14 @@
             const px = this.from.x + (this.to.x - this.from.x) * this.progress;
             const py = this.from.y + (this.to.y - this.from.y) * this.progress;
 
+            const light = isLightMode();
             ctx.beginPath();
             ctx.arc(px, py, 1.8, 0, Math.PI * 2);
-            ctx.fillStyle = '#00d2ff';
-            ctx.shadowBlur = 6;
-            ctx.shadowColor = '#00d2ff';
+            ctx.fillStyle = light ? '#0066b8' : '#00d2ff';
+            if (!light) {
+                ctx.shadowBlur = 6;
+                ctx.shadowColor = '#00d2ff';
+            }
             ctx.fill();
             ctx.shadowBlur = 0;
         }
@@ -127,6 +137,7 @@
     // Animation Loop
     function animate() {
         ctx.clearRect(0, 0, width, height);
+        const light = isLightMode();
 
         // Draw connections
         for (let i = 0; i < nodes.length; i++) {
@@ -136,16 +147,16 @@
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < MAX_DISTANCE) {
-                    const alpha = (1 - dist / MAX_DISTANCE) * 0.22;
+                    const alpha = (1 - dist / MAX_DISTANCE) * (light ? 0.18 : 0.22);
                     ctx.beginPath();
                     ctx.moveTo(nodes[i].x, nodes[i].y);
                     ctx.lineTo(nodes[j].x, nodes[j].y);
-                    ctx.strokeStyle = `rgba(30, 41, 59, ${alpha})`;
+                    ctx.strokeStyle = light ? `rgba(148, 163, 184, ${alpha})` : `rgba(30, 41, 59, ${alpha})`;
                     ctx.lineWidth = 1;
                     ctx.stroke();
 
                     // Randomly spawn data packets between connected links
-                    if (Math.random() < 0.0008 && packets.length < 15) {
+                    if (Math.random() < 0.0008 && packets.length < 14) {
                         packets.push(new Packet(nodes[i], nodes[j]));
                     }
                 }
@@ -159,11 +170,11 @@
                 const dy = nodes[i].y - mouse.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < MOUSE_RADIUS) {
-                    const alpha = (1 - dist / MOUSE_RADIUS) * 0.35;
+                    const alpha = (1 - dist / MOUSE_RADIUS) * (light ? 0.3 : 0.35);
                     ctx.beginPath();
                     ctx.moveTo(nodes[i].x, nodes[i].y);
                     ctx.lineTo(mouse.x, mouse.y);
-                    ctx.strokeStyle = `rgba(0, 210, 255, ${alpha})`;
+                    ctx.strokeStyle = light ? `rgba(0, 102, 184, ${alpha})` : `rgba(0, 210, 255, ${alpha})`;
                     ctx.lineWidth = 1;
                     ctx.stroke();
                 }
