@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" data-theme="dark" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corneille Malonga · Senior Hybrid Network & Azure Cloud Engineer</title>
-    <meta name="description" content="Portfolio of Corneille Malonga — Senior Hybrid Network & Azure Cloud Infrastructure Engineer. AZ-700 Certified, Enterprise On-Premises & Windows Networking Specialist.">
+    <title>Corneille Malonga · Azure Network & Infrastructure Engineer</title>
+    <meta name="description" content="Portfolio of Corneille Malonga — Azure Network & Infrastructure Engineer. AZ-700 Certified, Enterprise On-Premises, Windows Server & Hyper-V Specialist.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,16 +32,24 @@
 
             <nav class="nav-links" id="navLinks">
                 <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
                 <a href="#competencies" class="nav-link">Competencies</a>
-                <a href="#flagship-project" class="nav-link">Flagship Project</a>
-                <a href="#experience" class="nav-link">Career Journey</a>
-                <a href="#terminal" class="nav-link">CLI Telemetry</a>
+                <a href="#flagship-project" class="nav-link">Architecture Project</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#terminal" class="nav-link">Diagnostics CLI</a>
                 <a href="mailto:cmalonga.work@gmail.com" class="nav-btn">Get In Touch</a>
             </nav>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+            <div class="nav-actions">
+                <!-- Theme Toggle Button (Light/Dark) -->
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Light/Dark Theme" title="Toggle Theme">
+                    <i class="fa-solid fa-moon" id="themeIcon"></i>
+                </button>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -56,14 +64,15 @@
             </div>
 
             <h1 class="hero-title">
-                Architecting Resilient <br>
-                <span class="gradient-text">Azure Cloud & On-Premises</span> Networks
+                Designing and Diagnosing <br>
+                <span class="gradient-text">Azure Cloud &amp; On-Premises</span> Networks
             </h1>
 
             <p class="hero-subtitle">
-                Senior Network &amp; Cloud Infrastructure Engineer with <strong>6+ years of progressive enterprise experience</strong>. 
-                Certified <strong>AZ-700</strong> specializing in <strong>Azure Zero-Trust Landing Zones</strong>, 
-                <strong>Hybrid IPsec VPN / ExpressRoute connectivity</strong>, and enterprise <strong>Windows Server / Hyper-V networking</strong>.
+                Azure Network &amp; Infrastructure Engineer (<strong>AZ-700 Certified</strong>) specializing in hybrid transit, 
+                dynamic routing (<strong>BGP/OSPF</strong>), secure <strong>IPsec VPN &amp; ExpressRoute</strong> connectivity, 
+                Azure landing zones, and <strong>Windows Server / Hyper-V</strong> environments. Focused on building, diagnosing, 
+                and optimizing resilient enterprise network infrastructure.
             </p>
 
             <div class="hero-actions">
@@ -78,41 +87,136 @@
                 </a>
             </div>
 
-            <!-- Highlights Bar -->
+            <!-- Professional Capabilities Highlights Bar -->
             <div class="highlights-grid">
                 <div class="highlight-item">
-                    <span class="highlight-number" data-target="6">0</span><span class="plus">+</span>
-                    <span class="highlight-label">Years Total IT &amp; Net Exp.</span>
+                    <span class="highlight-badge text-azure">AZ-700 Certified</span>
+                    <span class="highlight-label">Azure Network Engineer Associate</span>
                 </div>
                 <div class="highlight-item">
-                    <span class="highlight-badge">AZ-700</span>
-                    <span class="highlight-label">Azure Certified Network Eng.</span>
+                    <span class="highlight-badge text-cyan">Hybrid Routing</span>
+                    <span class="highlight-label">BGP Dynamic Peering &amp; IPsec / ExpressRoute</span>
                 </div>
                 <div class="highlight-item">
-                    <span class="highlight-badge">Hybrid L2/L3</span>
-                    <span class="highlight-label">On-Premises &amp; Windows Net</span>
+                    <span class="highlight-badge text-blue">Windows &amp; Hyper-V</span>
+                    <span class="highlight-label">Active Directory, DNS/DHCP, RRAS &amp; Virtual Switches</span>
                 </div>
                 <div class="highlight-item">
-                    <span class="highlight-number" data-target="0">0</span>
-                    <span class="highlight-label">PaaS Public IP Exposure</span>
+                    <span class="highlight-badge text-green">Network Diagnostics</span>
+                    <span class="highlight-label">Packet Analysis, DNS Forwarding &amp; Egress Routing</span>
                 </div>
             </div>
         </section>
 
-        <!-- Profile / About Section -->
+        <!-- Profile & Grounded Story Section -->
         <section class="section" id="about">
             <div class="section-header">
+                <div class="project-tag-pill">ENGINEERING PROFILE &amp; JOURNEY</div>
                 <h2 class="section-title">Bridging Physical Datacenters &amp; Azure Cloud</h2>
                 <p class="section-description">
-                    From early roots troubleshooting carrier-grade routing at an Internet Service Provider (ISP) to engineering enterprise wired/wireless infrastructure and architecting multi-region Azure Zero-Trust environments. Specialized in solving complex enterprise challenges: <strong>Private Link DNS resolution</strong>, <strong>BGP dynamic route failovers over IPsec/ExpressRoute</strong>, and <strong>Hyper-V virtual networking</strong>.
+                    My background spans ISP infrastructure, enterprise on-premises networks, Windows identity systems, and Azure cloud networking.
                 </p>
+            </div>
+
+            <div class="story-grid">
+                <div class="story-card">
+                    <div class="story-step-num">01</div>
+                    <div class="story-step-content">
+                        <h3>ISP Network Operations Foundation</h3>
+                        <p>
+                            Started at an Internet Service Provider (ISP), working directly with carrier routing protocols (BGP/OSPF), edge routers, core switching, and customer premises equipment (CPE). Handled physical link troubleshooting (fiber and copper), PPPoE/DHCP subscriber provisioning, subnet allocation (VLSM/CIDR), and live incident response in a 24/7 Network Operations Center (NOC).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-step-num">02</div>
+                    <div class="story-step-content">
+                        <h3>Enterprise On-Premises &amp; Windows Governance (2021 – 2024)</h3>
+                        <p>
+                            Transitioned to enterprise infrastructure, designing and maintaining wired and wireless networks (VLANs, 802.1Q trunking, Spanning Tree, QoS, 802.1X enterprise wireless). Administered Windows Server core services including Active Directory Domain Services (AD DS), DNS, DHCP, and Group Policy (GPO) security configurations. Deployed Network Policy Server (NPS/RADIUS) for secure access control and utilized Wireshark for deep packet inspection to resolve Layer 2/3 performance bottlenecks.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-step-num">03</div>
+                    <div class="story-step-content">
+                        <h3>Azure Cloud &amp; Hybrid Infrastructure (2024 – Present)</h3>
+                        <p>
+                            Currently engineering and diagnosing Azure cloud and hybrid networks. Architecting Hub-and-Spoke Virtual Networks, Azure Firewall inspection rules, and redundant Site-to-Site IPsec VPN connections with dynamic BGP route exchange. Solving critical hybrid DNS challenges via Azure Private DNS Resolver, securing PaaS storage and databases using Private Endpoints, and managing Hyper-V virtual switch topologies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services / What I Deliver Section -->
+        <section class="section" id="services">
+            <div class="section-header">
+                <div class="project-tag-pill">PRACTICAL EXPERTISE</div>
+                <h2 class="section-title">What I Deliver to Organizations</h2>
+                <p class="section-description">
+                    Direct technical services and operational value I provide to engineering teams and enterprise environments.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon text-azure"><i class="fa-solid fa-arrows-split-up-and-left"></i></div>
+                    <h3>Hybrid Network Design &amp; BGP Routing</h3>
+                    <p>
+                        Design and configure redundant Site-to-Site IPsec VPNs and ExpressRoute connections. Implement dynamic BGP routing between on-premises routers (Windows Server RRAS, physical gateways) and Azure VPN Gateways for hitless failover and automated route propagation.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon text-cyan"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Azure Landing Zones &amp; Egress Security</h3>
+                    <p>
+                        Architect secure Hub-and-Spoke VNet topologies. Deploy Azure Firewall Premium and User-Defined Routes (UDRs) to enforce default-deny routing (`0.0.0.0/0`), deep packet inspection, and micro-segmentation with Network Security Groups (NSGs).
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon text-green"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3>Private Link &amp; Hybrid DNS Architecture</h3>
+                    <p>
+                        Resolve split-horizon DNS challenges. Integrate Azure Private DNS Resolver with Windows Server AD DNS to allow seamless, bi-directional name resolution for Azure Private Endpoints (SQL, Storage, Key Vault) without public exposure.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon text-blue"><i class="fa-solid fa-stethoscope"></i></div>
+                    <h3>Network Diagnostics &amp; Packet Troubleshooting</h3>
+                    <p>
+                        Diagnose and resolve asymmetric routing, dropped VPN packets, MTU/MSS issues, and DNS resolution failures using Wireshark packet captures, Azure Network Watcher (IP Flow Verify, Packet Capture), and routing table diagnostics.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon text-purple"><i class="fa-brands fa-windows"></i></div>
+                    <h3>Windows Server &amp; Hyper-V Infrastructure</h3>
+                    <p>
+                        Configure and maintain Windows Server AD DS, DNS, DHCP, NPS (RADIUS), and Group Policy objects. Set up Hyper-V virtual switches, Switch Embedded Teaming (SET), and network isolation across production VLANs.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon text-orange"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Network Cost Optimization (FinOps)</h3>
+                    <p>
+                        Audit cloud network architectures to eliminate unnecessary data transfer charges, optimize NAT Gateway vs Firewall egress paths, and identify unattached Public IPs and idle network resources.
+                    </p>
+                </div>
             </div>
         </section>
 
         <!-- Core Competencies Section -->
         <section class="section" id="competencies">
             <div class="section-header">
-                <h2 class="section-title">Core Engineering Competencies</h2>
+                <div class="project-tag-pill">SKILLS IN PRODUCTION</div>
+                <h2 class="section-title">Technical Skillset Breakdown</h2>
             </div>
 
             <div class="competencies-grid">
@@ -122,8 +226,8 @@
                     <div class="card-icon azure-glow">
                         <i class="fa-brands fa-microsoft"></i>
                     </div>
-                    <h3 class="card-title">Azure Cloud &amp; Networking (AZ-700)</h3>
-                    <p class="card-text">Multi-region Hub-and-Spoke topologies, egress filtering, and secure PaaS architectures.</p>
+                    <h3 class="card-title">Azure Cloud Networking (AZ-700)</h3>
+                    <p class="card-text">Hub-and-Spoke VNets, egress filtering, and secure PaaS architectures.</p>
                     <div class="tag-cloud">
                         <span class="tag">Hub-and-Spoke VNets</span>
                         <span class="tag">Azure Firewall Premium</span>
@@ -132,6 +236,7 @@
                         <span class="tag">ExpressRoute &amp; S2S VPN</span>
                         <span class="tag">App Gateway (WAF v2)</span>
                         <span class="tag">UDR Forced Tunneling</span>
+                        <span class="tag">Network Watcher</span>
                         <span class="tag">Azure Compute &amp; Storage</span>
                     </div>
                 </div>
@@ -141,7 +246,7 @@
                     <div class="card-icon cyan-glow">
                         <i class="fa-solid fa-network-wired"></i>
                     </div>
-                    <h3 class="card-title">On-Premises &amp; Windows Networking</h3>
+                    <h3 class="card-title">On-Premises &amp; Physical Networking</h3>
                     <p class="card-text">Wired/wireless enterprise switching, routing protocols, and perimeter firewall security.</p>
                     <div class="tag-cloud">
                         <span class="tag">BGP &amp; OSPF Routing</span>
@@ -160,7 +265,7 @@
                     <div class="card-icon blue-glow">
                         <i class="fa-brands fa-windows"></i>
                     </div>
-                    <h3 class="card-title">Windows Identity &amp; Hyper-V</h3>
+                    <h3 class="card-title">Windows Server &amp; Hyper-V Systems</h3>
                     <p class="card-text">Datacenter system services, virtualization networking, and hybrid identity governance.</p>
                     <div class="tag-cloud">
                         <span class="tag">Windows Server 2016-2022</span>
@@ -170,213 +275,394 @@
                         <span class="tag">NIC Teaming &amp; SR-IOV</span>
                         <span class="tag">RRAS Dynamic Gateways</span>
                         <span class="tag">Entra ID (Azure AD) RBAC</span>
-                        <span class="tag">PowerShell Automation</span>
+                        <span class="tag">PowerShell Scripting</span>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- Flagship Project Showcase Section with Visual Architecture Diagram -->
+        <!-- Flagship Project Showcase Section with REALISTIC CABLE-CONNECTED Topology -->
         <section class="section" id="flagship-project">
             <div class="section-header">
-                <h2 class="section-title">Flagship Project: Azure Hybrid Zero-Trust Mesh</h2>
+                <div class="project-tag-pill">ARCHITECTURE SHOWCASE</div>
+                <h2 class="section-title">Project AetherNet: Hybrid Zero-Trust Mesh</h2>
                 <p class="section-description">
-                    <strong>Project AetherNet</strong> — A production-grade hybrid architecture bridging an on-premises datacenter (simulated via Windows Server 2022 &amp; Hyper-V) with an Azure Zero-Trust landing zone.
+                    A comprehensive hybrid topology diagram showing physical on-premises servers, virtualized Hyper-V switches, IPsec VPN cable termination, Azure Firewall routing, and Private Link endpoints.
                 </p>
             </div>
 
-            <!-- Visual Interactive Architecture Diagram -->
-            <div class="diagram-wrapper">
+            <!-- Cable-Connected Visual Architecture Diagram Container -->
+            <div class="diagram-wrapper-expanded">
                 <div class="diagram-header">
                     <div class="diagram-title">
-                        <i class="fa-solid fa-project-diagram text-azure"></i>
-                        <span>Hybrid Connectivity &amp; Traffic Flow Architecture</span>
+                        <i class="fa-solid fa-network-wired text-azure"></i>
+                        <span>Endpoint-to-Endpoint Cable Connection &amp; Routing Topology</span>
                     </div>
                     <div class="diagram-legend">
-                        <span class="legend-item"><span class="legend-dot onprem-dot"></span> On-Premises (Hyper-V)</span>
-                        <span class="legend-item"><span class="legend-dot vpn-dot"></span> IPsec S2S (BGP)</span>
-                        <span class="legend-item"><span class="legend-dot azure-dot"></span> Azure Hub &amp; Spokes</span>
+                        <span class="legend-item"><span class="cable-indicator copper-cable"></span> Copper Ethernet / VLAN</span>
+                        <span class="legend-item"><span class="cable-indicator vpn-cable"></span> IPsec Encrypted Tunnel</span>
+                        <span class="legend-item"><span class="cable-indicator peering-cable"></span> VNet Peering Trunk</span>
+                        <span class="legend-item"><span class="cable-indicator privatelink-cable"></span> Private Link Interface</span>
                     </div>
                 </div>
 
-                <!-- SVG Vector Topology Diagram -->
-                <div class="svg-diagram-container">
-                    <svg viewBox="0 0 920 480" class="architecture-svg" xmlns="http://www.w3.org/2000/svg">
+                <!-- High-Resolution Wide Realistic SVG Architecture Diagram -->
+                <div class="svg-diagram-container-expanded">
+                    <svg viewBox="0 0 1260 720" class="architecture-svg-large" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <!-- Gradients -->
-                            <linearGradient id="onPremGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#0e1726" />
-                                <stop offset="100%" stop-color="#0b101c" />
+                            <linearGradient id="onPremRackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#121b2d" />
+                                <stop offset="100%" stop-color="#0a101d" />
                             </linearGradient>
-                            <linearGradient id="azureGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#0c192e" />
-                                <stop offset="100%" stop-color="#091222" />
+                            <linearGradient id="azureCloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0b1a30" />
+                                <stop offset="100%" stop-color="#071020" />
                             </linearGradient>
-                            <linearGradient id="hubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#0f2744" />
-                                <stop offset="100%" stop-color="#0d1b30" />
+                            <linearGradient id="hubVnetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#0f294a" />
+                                <stop offset="100%" stop-color="#0b1d34" />
                             </linearGradient>
-                            <linearGradient id="wireGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <linearGradient id="spokeVnetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#10213a" />
+                                <stop offset="100%" stop-color="#091424" />
+                            </linearGradient>
+
+                            <!-- Cable Patterns -->
+                            <linearGradient id="ipsecCableGrad" x1="0%" y1="0%" x2="100%" y2="0%">
                                 <stop offset="0%" stop-color="#00d2ff" />
+                                <stop offset="50%" stop-color="#38bdf8" />
                                 <stop offset="100%" stop-color="#0078d4" />
                             </linearGradient>
-
-                            <!-- Pulse Glow Filter -->
-                            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feGaussianBlur stdDeviation="4" result="blur" />
-                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                            </filter>
                         </defs>
 
-                        <!-- On-Premises Datacenter Boundary -->
-                        <rect x="20" y="30" width="260" height="420" rx="14" fill="url(#onPremGrad)" stroke="#1e293b" stroke-width="1.5" />
-                        <text x="36" y="60" fill="#00d2ff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" letter-spacing="1">ON-PREMISES DATACENTER</text>
-                        <text x="36" y="78" fill="#64748b" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">Windows Server 2022 &amp; Hyper-V</text>
-
-                        <!-- On-Prem Components -->
-                        <!-- Hyper-V Workloads -->
-                        <g transform="translate(38, 95)">
-                            <rect width="224" height="74" rx="8" fill="#131d31" stroke="#334155" stroke-width="1" />
-                            <text x="14" y="26" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600">Hyper-V Virtual Switches</text>
-                            <text x="14" y="44" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">VLAN 10 (Prod) · VLAN 20 (Mgmt)</text>
-                            <text x="14" y="60" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">NIC Teaming (Switch Embedded)</text>
-                        </g>
-
-                        <!-- AD DS & DNS -->
-                        <g transform="translate(38, 185)">
-                            <rect width="224" height="74" rx="8" fill="#131d31" stroke="#334155" stroke-width="1" />
-                            <text x="14" y="26" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600">Active Directory &amp; DNS</text>
-                            <text x="14" y="44" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">corp.aethernet.local · 10.0.10.10</text>
-                            <text x="14" y="60" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="10">DNS Conditional Forwarding</text>
-                        </g>
-
-                        <!-- Windows RRAS BGP Router -->
-                        <g transform="translate(38, 275)">
-                            <rect width="224" height="74" rx="8" fill="#131d31" stroke="#0078d4" stroke-width="1.5" />
-                            <text x="14" y="26" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600">Windows RRAS Gateway</text>
-                            <text x="14" y="44" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">IPsec S2S · BGP ASN: 65010</text>
-                            <text x="14" y="60" fill="#00d2ff" font-family="'JetBrains Mono', monospace" font-size="10">Active/Active Redundant Tunnels</text>
-                        </g>
-
-                        <g transform="translate(38, 365)">
-                            <rect width="224" height="65" rx="8" fill="#131d31" stroke="#334155" stroke-width="1" />
-                            <text x="14" y="24" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600">Enterprise Governance</text>
-                            <text x="14" y="42" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">802.1X Wired/Wireless · GPO</text>
-                            <text x="14" y="56" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="10">NPS RADIUS &amp; Windows Firewall</text>
-                        </g>
-
-                        <!-- Connecting Tunnel (IPsec VPN / BGP) -->
-                        <path d="M 262 312 L 350 312" stroke="url(#wireGrad)" stroke-width="2.5" stroke-dasharray="6,4" class="animated-line" />
+                        <!-- ================= 1. ON-PREMISES DATACENTER RACK & SWITCHES ================= -->
+                        <rect x="20" y="25" width="370" height="670" rx="14" fill="url(#onPremRackGrad)" stroke="#1e293b" stroke-width="2" />
                         
-                        <!-- Tunnel Label Box -->
-                        <g transform="translate(268, 260)">
-                            <rect width="78" height="42" rx="6" fill="#090d16" stroke="#00d2ff" stroke-width="1" />
-                            <text x="8" y="16" fill="#00d2ff" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">IPsec S2S</text>
-                            <text x="8" y="32" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="8.5">BGP Peering</text>
-                        </g>
+                        <!-- Top Header Bar -->
+                        <rect x="20" y="25" width="370" height="42" rx="14" fill="#17243c" />
+                        <rect x="20" y="55" width="370" height="12" fill="#17243c" />
+                        <circle cx="42" cy="46" r="6" fill="#00d2ff" />
+                        <text x="56" y="51" fill="#00d2ff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">🏢 ON-PREM DATACENTER (10.0.0.0/16)</text>
 
-                        <!-- Azure Cloud Landing Zone Boundary -->
-                        <rect x="350" y="30" width="550" height="420" rx="14" fill="url(#azureGrad)" stroke="#0078d4" stroke-width="1.5" />
-                        <text x="368" y="60" fill="#0078d4" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" letter-spacing="1">AZURE MULTI-TIER CLOUD LANDING ZONE</text>
-                        <text x="368" y="78" fill="#64748b" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">AZ-700 Compliant · Zero-Trust Hub-and-Spoke Topology</text>
-
-                        <!-- Central Hub VNet -->
-                        <g transform="translate(368, 95)">
-                            <rect width="250" height="335" rx="10" fill="url(#hubGrad)" stroke="#1e3a5f" stroke-width="1.2" />
-                            <text x="14" y="24" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">HUB VNET (10.100.0.0/16)</text>
+                        <!-- Device 1: Physical Hyper-V Host & Virtual Switch -->
+                        <g transform="translate(38, 85)">
+                            <rect width="334" height="125" rx="8" fill="#0c1424" stroke="#334155" stroke-width="1.2" />
+                            <!-- Device Faceplate -->
+                            <rect x="0" y="0" width="334" height="28" rx="8" fill="#152238" />
+                            <rect x="0" y="18" width="334" height="10" fill="#152238" />
+                            <text x="12" y="19" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="700">🖥️ Hyper-V Host (Switch Embedded Teaming)</text>
                             
-                            <!-- Azure VPN Gateway -->
-                            <rect x="14" y="38" width="222" height="60" rx="6" fill="#0d1b30" stroke="#0078d4" stroke-width="1" />
-                            <text x="24" y="58" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="600">Azure VPN Gateway (VpnGw2AZ)</text>
-                            <text x="24" y="74" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">BGP ASN: 65515 · Dual-Tunnel Active</text>
-                            <text x="24" y="88" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="9">Dynamic Route Redistribution</text>
+                            <!-- RJ45 / Port Indicators -->
+                            <rect x="270" y="7" width="12" height="14" rx="2" fill="#0284c7" />
+                            <rect x="286" y="7" width="12" height="14" rx="2" fill="#0284c7" />
+                            <rect x="302" y="7" width="12" height="14" rx="2" fill="#10b981" />
 
-                            <!-- Azure Firewall Premium -->
-                            <rect x="14" y="110" width="222" height="68" rx="6" fill="#0d1b30" stroke="#ef4444" stroke-width="1" />
-                            <text x="24" y="130" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="600">Azure Firewall Premium (IDPS)</text>
-                            <text x="24" y="146" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">Private IP: 10.100.1.4 · TLS Inspection</text>
-                            <text x="24" y="162" fill="#ef4444" font-family="'JetBrains Mono', monospace" font-size="9">Forced UDR 0.0.0.0/0 Egress Filter</text>
-
-                            <!-- Azure Private DNS Resolver -->
-                            <rect x="14" y="190" width="222" height="68" rx="6" fill="#0d1b30" stroke="#00d2ff" stroke-width="1" />
-                            <text x="24" y="210" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="600">Azure Private DNS Resolver</text>
-                            <text x="24" y="226" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">Inbound: 10.100.2.4 · Outbound Endpoint</text>
-                            <text x="24" y="242" fill="#00d2ff" font-family="'JetBrains Mono', monospace" font-size="9">Seamless Hybrid Name Resolution</text>
-
-                            <!-- Azure Bastion & Route Server -->
-                            <rect x="14" y="270" width="222" height="52" rx="6" fill="#0d1b30" stroke="#334155" stroke-width="1" />
-                            <text x="24" y="290" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">Azure Bastion &amp; Route Server</text>
-                            <text x="24" y="306" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">Zero Public Management Endpoints</text>
+                            <text x="12" y="50" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">VLAN 10 (Production VMs): <tspan fill="#f8fafc">10.0.10.0/24</tspan></text>
+                            <text x="12" y="70" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">VLAN 20 (Management): <tspan fill="#f8fafc">10.0.20.0/24</tspan></text>
+                            <text x="12" y="92" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10">Dual 10GbE Uplinks · SET vSwitch Teaming</text>
+                            <text x="12" y="110" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="9.5">SR-IOV Enabled · Hardware Offloading</text>
                         </g>
 
-                        <!-- Spoke VNets -->
-                        <!-- Spoke 1: Workload / Compute -->
-                        <g transform="translate(636, 95)">
-                            <rect width="246" height="158" rx="10" fill="#0e1728" stroke="#1e3a5f" stroke-width="1.2" />
-                            <text x="14" y="24" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">APP SPOKE (10.101.0.0/16)</text>
-                            
-                            <rect x="14" y="38" width="218" height="52" rx="6" fill="#111c30" stroke="#334155" stroke-width="1" />
-                            <text x="22" y="58" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">App VMs &amp; VM Scale Sets</text>
-                            <text x="22" y="74" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">Isolated Subnet · NSG Micro-segmentation</text>
+                        <!-- Device 2: Windows Server Domain Controller & DNS -->
+                        <g transform="translate(38, 225)">
+                            <rect width="334" height="120" rx="8" fill="#0c1424" stroke="#334155" stroke-width="1.2" />
+                            <rect x="0" y="0" width="334" height="28" rx="8" fill="#152238" />
+                            <rect x="0" y="18" width="334" height="10" fill="#152238" />
+                            <text x="12" y="19" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="700">🌲 Windows Server 2022 AD DS &amp; DNS</text>
+                            <rect x="302" y="7" width="12" height="14" rx="2" fill="#10b981" />
 
-                            <rect x="14" y="98" width="218" height="48" rx="6" fill="#111c30" stroke="#334155" stroke-width="1" />
-                            <text x="22" y="118" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">Application Gateway (WAF v2)</text>
-                            <text x="22" y="134" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9.5">Layer 7 Public Ingress Protection</text>
+                            <text x="12" y="50" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">Domain: <tspan fill="#f8fafc">corp.aethernet.local</tspan></text>
+                            <text x="12" y="70" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">Primary DNS IP: <tspan fill="#00d2ff">10.0.10.10</tspan></text>
+                            <text x="12" y="92" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="10">DNS Conditional Forwarder: privatelink.* ➔ 10.100.2.4</text>
+                            <text x="12" y="108" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="9.5">Group Policy (GPO) Governance · 802.1X RADIUS (NPS)</text>
                         </g>
 
-                        <!-- Spoke 2: PaaS Data Tier -->
-                        <g transform="translate(636, 272)">
-                            <rect width="246" height="158" rx="10" fill="#0e1728" stroke="#1e3a5f" stroke-width="1.2" />
-                            <text x="14" y="24" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">DATA SPOKE (10.102.0.0/16)</text>
-                            
-                            <rect x="14" y="38" width="218" height="52" rx="6" fill="#111c30" stroke="#334155" stroke-width="1" />
-                            <text x="22" y="58" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">Private Link Endpoints</text>
-                            <text x="22" y="74" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="9.5">Azure SQL · Storage · Key Vault</text>
+                        <!-- Device 3: Windows Server RRAS Gateway / BGP Router -->
+                        <g transform="translate(38, 360)">
+                            <rect width="334" height="150" rx="8" fill="#0c1424" stroke="#0078d4" stroke-width="1.8" />
+                            <rect x="0" y="0" width="334" height="28" rx="8" fill="#0078d4" />
+                            <text x="12" y="19" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="700">🌐 Windows RRAS Edge Gateway &amp; BGP Router</text>
+                            <rect x="286" y="7" width="12" height="14" rx="2" fill="#00d2ff" />
+                            <rect x="302" y="7" width="12" height="14" rx="2" fill="#00d2ff" />
 
-                            <rect x="14" y="98" width="218" height="48" rx="6" fill="#111c30" stroke="#334155" stroke-width="1" />
-                            <text x="22" y="118" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">Storage Firewalls &amp; RBAC</text>
-                            <text x="22" y="134" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9.5">Entra ID Managed Identities</text>
+                            <text x="12" y="50" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">Internal Interface: <tspan fill="#f8fafc">10.0.0.1/24</tspan></text>
+                            <text x="12" y="70" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">External Public IP: <tspan fill="#f8fafc">198.51.100.1 (WAN Interface)</tspan></text>
+                            <text x="12" y="90" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">BGP Configuration: <tspan fill="#00d2ff">ASN 65010</tspan> · Router ID: <tspan fill="#f8fafc">10.0.0.1</tspan></text>
+                            <text x="12" y="110" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">BGP Peer Target: <tspan fill="#f8fafc">10.100.0.254 (Azure ASN 65515)</tspan></text>
+                            <text x="12" y="132" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="10">Dual IPsec IKEv2 Tunnels · Active/Active Route Mesh</text>
                         </g>
 
-                        <!-- Hub to Spoke VNet Peering & UDR Lines -->
-                        <path d="M 618 174 L 636 174" stroke="#00d2ff" stroke-width="2" stroke-dasharray="4,3" />
-                        <path d="M 618 351 L 636 351" stroke="#00d2ff" stroke-width="2" stroke-dasharray="4,3" />
+                        <!-- Device 4: On-Prem Security & Monitoring -->
+                        <g transform="translate(38, 525)">
+                            <rect width="334" height="135" rx="8" fill="#0c1424" stroke="#334155" stroke-width="1.2" />
+                            <rect x="0" y="0" width="334" height="28" rx="8" fill="#152238" />
+                            <rect x="0" y="18" width="334" height="10" fill="#152238" />
+                            <text x="12" y="19" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="700">🔒 Perimeter Security &amp; Diagnostics</text>
+                            <text x="12" y="50" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">Windows Firewall with Advanced Security (WFAS)</text>
+                            <text x="12" y="70" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">Network Policy Server (NPS) 802.1X Authentication</text>
+                            <text x="12" y="90" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10.5">Wireshark Packet Inspection &amp; Flow Analysis</text>
+                            <text x="12" y="112" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="9.5">QoS Traffic Prioritization · Port Security</text>
+                        </g>
+
+                        <!-- Internal Copper Patch Cables in Datacenter -->
+                        <path d="M 205 210 L 205 225" stroke="#38bdf8" stroke-width="2.5" />
+                        <path d="M 205 345 L 205 360" stroke="#38bdf8" stroke-width="2.5" />
+                        <path d="M 205 510 L 205 525" stroke="#38bdf8" stroke-width="2.5" />
+
+                        <!-- ================= 2. ENCRYPTED HYBRID IPSEC S2S CABLE CONNECTION ================= -->
+                        <!-- Cable Line 1 -->
+                        <path d="M 372 425 L 485 425" stroke="url(#ipsecCableGrad)" stroke-width="4" stroke-dasharray="8,5" class="animated-line" />
+                        <!-- Cable Line 2 (Redundant) -->
+                        <path d="M 372 445 L 485 445" stroke="url(#ipsecCableGrad)" stroke-width="4" stroke-dasharray="8,5" class="animated-line" />
+
+                        <!-- Hardware Encrypted Tunnel Badge -->
+                        <g transform="translate(385, 365)">
+                            <rect width="90" height="52" rx="8" fill="#080e18" stroke="#00d2ff" stroke-width="1.4" />
+                            <text x="10" y="18" fill="#00d2ff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">🔒 IPsec S2S</text>
+                            <text x="10" y="32" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="9">Dual BGP Links</text>
+                            <text x="10" y="44" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="8.5">&lt; 2.8s Failover</text>
+                        </g>
+
+                        <!-- ================= 3. MICROSOFT AZURE CLOUD INFRASTRUCTURE ================= -->
+                        <rect x="485" y="25" width="755" height="670" rx="14" fill="url(#azureCloudGrad)" stroke="#0078d4" stroke-width="2" />
+                        
+                        <rect x="485" y="25" width="755" height="42" rx="14" fill="#0e2340" />
+                        <rect x="485" y="55" width="755" height="12" fill="#0e2340" />
+                        <circle cx="507" cy="46" r="6" fill="#38bdf8" />
+                        <text x="522" y="51" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">☁️ MICROSOFT AZURE ZERO-TRUST LANDING ZONE (AZ-700)</text>
+
+                        <!-- ================= 3A. CENTRAL HUB VNET (10.100.0.0/16) ================= -->
+                        <g transform="translate(505, 80)">
+                            <rect width="345" height="595" rx="10" fill="url(#hubVnetGrad)" stroke="#1e3a60" stroke-width="1.5" />
+                            <rect x="0" y="0" width="345" height="30" rx="10" fill="#132e54" />
+                            <rect x="0" y="20" width="345" height="10" fill="#132e54" />
+                            <text x="14" y="20" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11.5" font-weight="700">🛡️ CENTRAL HUB VNET (10.100.0.0/16)</text>
+
+                            <!-- Subnet 1: GatewaySubnet -->
+                            <g transform="translate(14, 42)">
+                                <rect width="317" height="115" rx="6" fill="#091424" stroke="#0078d4" stroke-width="1.2" />
+                                <text x="12" y="22" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">Azure VPN Gateway (VpnGw2AZ)</text>
+                                <text x="12" y="42" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Subnet: <tspan fill="#f8fafc">GatewaySubnet (10.100.0.0/24)</tspan></text>
+                                <text x="12" y="60" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">BGP ASN: <tspan fill="#00d2ff">65515</tspan> · BGP Peer: <tspan fill="#f8fafc">10.100.0.254</tspan></text>
+                                <text x="12" y="78" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Public Endpoints: <tspan fill="#f8fafc">20.x.x.1 / 20.x.x.2 (Active-Active)</tspan></text>
+                                <text x="12" y="98" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="9.5">Dynamic Route Convergence with On-Prem RRAS</text>
+                            </g>
+
+                            <!-- Subnet 2: AzureFirewallSubnet -->
+                            <g transform="translate(14, 170)">
+                                <rect width="317" height="125" rx="6" fill="#091424" stroke="#ef4444" stroke-width="1.5" />
+                                <text x="12" y="22" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">🔥 Azure Firewall Premium (Central Inspection)</text>
+                                <text x="12" y="42" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Subnet: <tspan fill="#f8fafc">AzureFirewallSubnet (10.100.1.0/24)</tspan></text>
+                                <text x="12" y="60" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Private IP: <tspan fill="#ef4444">10.100.1.4</tspan> (Default Next-Hop Router)</text>
+                                <text x="12" y="78" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Inspection: <tspan fill="#ef4444">IDPS Alert &amp; Deny · TLS Decryption</tspan></text>
+                                <text x="12" y="96" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Routing: <tspan fill="#34d399">Forced UDR (0.0.0.0/0 ➔ 10.100.1.4)</tspan></text>
+                                <text x="12" y="114" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="9">Threat Intelligence Filtering · FQDN Network Rules</text>
+                            </g>
+
+                            <!-- Subnet 3: DnsResolverSubnet -->
+                            <g transform="translate(14, 310)">
+                                <rect width="317" height="130" rx="6" fill="#091424" stroke="#00d2ff" stroke-width="1.5" />
+                                <text x="12" y="22" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">⚡ Azure Private DNS Resolver Engine</text>
+                                <text x="12" y="42" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Inbound Endpoint: <tspan fill="#00d2ff">10.100.2.4</tspan> (DnsInboundSubnet)</text>
+                                <text x="12" y="60" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Outbound Endpoint: <tspan fill="#f8fafc">10.100.2.16</tspan> (DnsOutboundSubnet)</text>
+                                <text x="12" y="78" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Forwarding Ruleset: <tspan fill="#34d399">corp.aethernet.local ➔ 10.0.10.10</tspan></text>
+                                <text x="12" y="96" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Private Link Sync: <tspan fill="#34d399">privatelink.database/blob</tspan></text>
+                                <text x="12" y="116" fill="#00d2ff" font-family="'JetBrains Mono', monospace" font-size="9.5">Latency: 2.1ms · 0 Custom VM Forwarders Needed</text>
+                            </g>
+
+                            <!-- Subnet 4: Management & Bastion -->
+                            <g transform="translate(14, 455)">
+                                <rect width="317" height="120" rx="6" fill="#091424" stroke="#334155" stroke-width="1.2" />
+                                <text x="12" y="22" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">🛡️ Management &amp; BGP Route Server</text>
+                                <text x="12" y="42" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Azure Bastion: <tspan fill="#f8fafc">10.100.3.0/26 (Zero Public RDP/SSH)</tspan></text>
+                                <text x="12" y="60" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Azure Route Server: <tspan fill="#00d2ff">10.100.4.0/27 (BGP NVA Integration)</tspan></text>
+                                <text x="12" y="78" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Network Watcher: <tspan fill="#34d399">NSG Flow Logs &amp; IP Flow Verify</tspan></text>
+                                <text x="12" y="98" fill="#ef4444" font-family="'JetBrains Mono', monospace" font-size="9.5">Strict Policy: 0 Public IPs on Backend Workloads</text>
+                            </g>
+                        </g>
+
+                        <!-- ================= 3B. SPOKE VNets ================= -->
+                        
+                        <!-- Spoke 1: App Compute Spoke (10.101.0.0/16) -->
+                        <g transform="translate(875, 80)">
+                            <rect width="345" height="285" rx="10" fill="url(#spokeVnetGrad)" stroke="#1e3a60" stroke-width="1.5" />
+                            <rect x="0" y="0" width="345" height="30" rx="10" fill="#152640" />
+                            <rect x="0" y="20" width="345" height="10" fill="#152640" />
+                            <text x="14" y="20" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11.5" font-weight="700">🚀 APP WORKLOAD SPOKE (10.101.0.0/16)</text>
+
+                            <!-- Component: App VMSS -->
+                            <g transform="translate(14, 42)">
+                                <rect width="317" height="100" rx="6" fill="#091424" stroke="#334155" stroke-width="1.2" />
+                                <text x="12" y="22" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">App VMs &amp; VM Scale Sets (VMSS)</text>
+                                <text x="12" y="42" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Subnet: <tspan fill="#f8fafc">10.101.1.0/24 (AppSubnet)</tspan></text>
+                                <text x="12" y="60" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">UDR: <tspan fill="#ef4444">0.0.0.0/0 ➔ 10.100.1.4 (Azure Firewall)</tspan></text>
+                                <text x="12" y="80" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9.5">Security: Application Security Groups (ASG)</text>
+                            </g>
+
+                            <!-- Component: App Gateway WAF v2 -->
+                            <g transform="translate(14, 155)">
+                                <rect width="317" height="115" rx="6" fill="#091424" stroke="#0078d4" stroke-width="1.2" />
+                                <text x="12" y="22" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">Application Gateway (WAF v2)</text>
+                                <text x="12" y="42" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Subnet: <tspan fill="#f8fafc">10.101.0.0/24 (AppGatewaySubnet)</tspan></text>
+                                <text x="12" y="60" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Ingress: <tspan fill="#38bdf8">OWASP Core Rule Set 3.2 · SSL Term</tspan></text>
+                                <text x="12" y="78" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Backend: <tspan fill="#f8fafc">Private VMSS Backend Pool (Port 443)</tspan></text>
+                                <text x="12" y="98" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="9.5">Layer 7 Inspection &amp; Path-Based Routing</text>
+                            </g>
+                        </g>
+
+                        <!-- Spoke 2: PaaS Data Spoke (10.102.0.0/16) -->
+                        <g transform="translate(875, 390)">
+                            <rect width="345" height="285" rx="10" fill="url(#spokeVnetGrad)" stroke="#1e3a60" stroke-width="1.5" />
+                            <rect x="0" y="0" width="345" height="30" rx="10" fill="#152640" />
+                            <rect x="0" y="20" width="345" height="10" fill="#152640" />
+                            <text x="14" y="20" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11.5" font-weight="700">💾 DATA &amp; PAAS SPOKE (10.102.0.0/16)</text>
+
+                            <!-- Component: Private Endpoints -->
+                            <g transform="translate(14, 42)">
+                                <rect width="317" height="135" rx="6" fill="#091424" stroke="#10b981" stroke-width="1.5" />
+                                <text x="12" y="22" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">🔒 Azure Private Link Endpoints</text>
+                                <text x="12" y="42" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Subnet: <tspan fill="#f8fafc">10.102.1.0/24 (PrivateEndpoints)</tspan></text>
+                                <text x="12" y="60" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="10">Azure SQL DB: <tspan fill="#f8fafc">10.102.1.18 (privatelink.database)</tspan></text>
+                                <text x="12" y="78" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="10">Storage Account: <tspan fill="#f8fafc">10.102.1.19 (privatelink.blob)</tspan></text>
+                                <text x="12" y="96" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="10">Azure Key Vault: <tspan fill="#f8fafc">10.102.1.20 (privatelink.vault)</tspan></text>
+                                <text x="12" y="118" fill="#00d2ff" font-family="'JetBrains Mono', monospace" font-size="9.5">Public Network Access: DISABLED (Zero Public Exposure)</text>
+                            </g>
+
+                            <!-- Component: Storage & RBAC Governance -->
+                            <g transform="translate(14, 190)">
+                                <rect width="317" height="80" rx="6" fill="#091424" stroke="#334155" stroke-width="1.2" />
+                                <text x="12" y="22" fill="#f8fafc" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">Identity &amp; Storage Access Policies</text>
+                                <text x="12" y="42" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">Entra ID Managed Identities &amp; Storage Firewalls</text>
+                                <text x="12" y="60" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9.5">Conditional Access (Named Network Locations)</text>
+                            </g>
+                        </g>
+
+                        <!-- VNet Peering Trunk Cables (Hub ➔ Spokes) -->
+                        <path d="M 850 220 L 875 220" stroke="#00d2ff" stroke-width="3.5" stroke-dasharray="6,4" />
+                        <path d="M 850 530 L 875 530" stroke="#00d2ff" stroke-width="3.5" stroke-dasharray="6,4" />
                     </svg>
                 </div>
 
-                <!-- Key Architecture Breakdown -->
-                <div class="diagram-footer-grid">
-                    <div class="diag-feature">
-                        <i class="fa-solid fa-network-wired text-azure"></i>
+                <!-- Expanded Architecture Highlights Bar -->
+                <div class="diagram-footer-grid-expanded">
+                    <div class="diag-feature-card">
+                        <div class="df-icon azure-glow"><i class="fa-solid fa-network-wired"></i></div>
                         <div>
                             <h4>Split-Horizon DNS Resolver</h4>
-                            <p>Sub-5ms resolution of Azure Private Link PaaS endpoints from on-prem Hyper-V with zero VM forwarder VMs.</p>
+                            <p>Direct integration between on-prem Windows AD DNS (<code>10.0.10.10</code>) and Azure Private DNS Resolver (<code>10.100.2.4</code>). Sub-2.5ms resolution for all PaaS Private Endpoints.</p>
                         </div>
                     </div>
-                    <div class="diag-feature">
-                        <i class="fa-solid fa-shield-halved text-cyan"></i>
+                    <div class="diag-feature-card">
+                        <div class="df-icon red-glow"><i class="fa-solid fa-shield-halved"></i></div>
                         <div>
-                            <h4>Azure Firewall Zero-Trust</h4>
-                            <p>Forced UDR routing ensuring all East-West and North-South traffic passes through deep packet inspection.</p>
+                            <h4>Azure Firewall Premium IDPS</h4>
+                            <p>Forced User-Defined Route (<code>0.0.0.0/0 ➔ 10.100.1.4</code>) ensuring all outbound and spoke-to-spoke traffic is inspected with intrusion prevention and TLS decryption.</p>
                         </div>
                     </div>
-                    <div class="diag-feature">
-                        <i class="fa-solid fa-arrows-split-up-and-left text-green"></i>
+                    <div class="diag-feature-card">
+                        <div class="df-icon cyan-glow"><i class="fa-solid fa-arrows-split-up-and-left"></i></div>
                         <div>
-                            <h4>Dynamic BGP VPN Failover</h4>
-                            <p>Dynamic route advertisement between Windows Server RRAS (ASN 65010) and Azure VPN Gateway (ASN 65515).</p>
+                            <h4>Dynamic BGP Routing Failover</h4>
+                            <p>Dual active-active IPsec tunnels with dynamic BGP route peering between on-prem Windows RRAS (ASN <code>65010</code>) and Azure VPN Gateway (ASN <code>65515</code>).</p>
+                        </div>
+                    </div>
+                    <div class="diag-feature-card">
+                        <div class="df-icon green-glow"><i class="fa-solid fa-lock"></i></div>
+                        <div>
+                            <h4>Zero-Trust PaaS Isolation</h4>
+                            <p>All public internet access is disabled on Azure SQL, Storage, and Key Vault. Connectivity is restricted strictly to Private Endpoints inside <code>10.102.1.0/24</code>.</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Project Biography / Comprehensive Deep-Dive Section -->
+        <section class="section" id="project-biography">
+            <div class="section-header">
+                <div class="project-tag-pill">TECHNICAL CASE STUDY &amp; BIOGRAPHY</div>
+                <h2 class="section-title">Inside Project AetherNet: The Engineering Story</h2>
+                <p class="section-description">
+                    A comprehensive architectural deep-dive documenting the design rationale, technical hurdles, and enterprise solutions implemented in Project AetherNet.
+                </p>
+            </div>
+
+            <div class="bio-grid">
+                
+                <!-- Bio Block 1: The Enterprise Origin -->
+                <div class="bio-card">
+                    <div class="bio-number">01</div>
+                    <div class="bio-content">
+                        <h3 class="bio-heading">The Problem Context &amp; Architecture Origin</h3>
+                        <p>
+                            Modern enterprise organizations migrating mission-critical workloads to Microsoft Azure frequently encounter severe operational bottlenecks when attempting to integrate with existing on-premises datacenters. Generic hub-and-spoke tutorials assume clean, cloud-native environments—ignoring the reality of legacy Active Directory dependencies, complex routing tables, and hybrid security mandates.
+                        </p>
+                        <p class="bio-subtext">
+                            <strong>Project AetherNet</strong> was engineered to solve the four most critical hybrid cloud challenges: <strong>DNS forwarder loops</strong>, <strong>asymmetric traffic drops across next-gen firewalls</strong>, <strong>manual static route fragility during WAN brownouts</strong>, and <strong>accidental public IP exposure on cloud PaaS services</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bio Block 2: Hybrid Transit & Dynamic BGP Failover -->
+                <div class="bio-card">
+                    <div class="bio-number">02</div>
+                    <div class="bio-content">
+                        <h3 class="bio-heading">BGP Dynamic Routing over Redundant IPsec VPN Tunnels</h3>
+                        <p>
+                            To eliminate the operational overhead and single-point-of-failure risks associated with static route tables, the architecture establishes a <strong>dynamic BGP peering session</strong> between an on-premises <strong>Windows Server 2022 Routing and Remote Access (RRAS)</strong> router (running as an enterprise gateway on Hyper-V under ASN <code>65010</code>) and an <strong>Azure Virtual Network Gateway</strong> (VpnGw2AZ under ASN <code>65515</code>).
+                        </p>
+                        <ul class="bio-list">
+                            <li><strong>Active-Active Dual Tunnels:</strong> Two independent IPsec IKEv2 tunnels provide automatic, hitless failover with convergence times under 2.8 seconds.</li>
+                            <li><strong>Automated Route Redistribution:</strong> On-premises VLAN subnets (<code>10.0.10.0/24</code> and <code>10.0.20.0/24</code>) and Azure Spoke address spaces (<code>10.101.0.0/16</code> and <code>10.102.0.0/16</code>) are automatically advertised without manual intervention.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bio Block 3: Solving the Private Link DNS Dilemma -->
+                <div class="bio-card">
+                    <div class="bio-number">03</div>
+                    <div class="bio-content">
+                        <h3 class="bio-heading">Solving the Private Link DNS Split-Horizon Challenge</h3>
+                        <p>
+                            When Azure PaaS resources (such as Azure SQL and Blob Storage) are converted to <strong>Private Endpoints</strong>, their FQDNs resolve to canonical names (CNAMEs) like <code>*.privatelink.database.windows.net</code>. Without proper split-horizon DNS, on-premises clients query public DNS servers and receive unroutable public IPs or fail resolution entirely.
+                        </p>
+                        <p class="bio-subtext">
+                            Instead of managing expensive, high-maintenance custom Linux/Windows VM forwarder clusters, Project AetherNet implements the native <strong>Azure Private DNS Resolver</strong>:
+                        </p>
+                        <ul class="bio-list">
+                            <li><strong>Inbound Endpoint (<code>10.100.2.4</code>):</strong> Windows Server 2022 Active Directory DNS servers forward all <code>*.privatelink.*</code> queries directly to this IP, achieving average query response times of <strong>2.1 ms</strong>.</li>
+                            <li><strong>Outbound Endpoint &amp; Rulesets:</strong> Azure workloads seamlessly query the on-premises domain (<code>corp.aethernet.local</code>) by forwarding requests back to on-prem domain controllers (<code>10.0.10.10</code>).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bio Block 4: Zero-Trust Inspection & FinOps Governance -->
+                <div class="bio-card">
+                    <div class="bio-number">04</div>
+                    <div class="bio-content">
+                        <h3 class="bio-heading">Zero-Trust Deep Packet Inspection &amp; FinOps Governance</h3>
+                        <p>
+                            Project AetherNet enforces zero-trust micro-segmentation across both the network perimeter and internal lateral pathways:
+                        </p>
+                        <ul class="bio-list">
+                            <li><strong>Centralized Azure Firewall Premium:</strong> User-Defined Routes (UDRs) applied to all Spoke subnets force all outbound internet and cross-spoke traffic (<code>0.0.0.0/0</code>) through <code>10.100.1.4</code> for IDPS signature inspection, URL categorization, and TLS termination.</li>
+                            <li><strong>PaaS Isolation:</strong> All public network access is disabled on Azure SQL, Storage, and Key Vault. Connectivity is restricted strictly to Private Endpoints inside <code>10.102.1.0/24</code>.</li>
+                            <li><strong>FinOps Drift Engine:</strong> Automated PowerShell scripts running in GitHub Actions CI/CD continuously audit unattached NICs, idle Public IPs, and overly permissive NSG rules—saving thousands in recurring cloud waste.</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <!-- Professional Experience Timeline -->
         <section class="section" id="experience">
             <div class="section-header">
-                <h2 class="section-title">Career Journey &amp; Enterprise Track Record</h2>
-                <p class="section-description">6 years of progressive engineering across Internet Service Providers, enterprise on-premises infrastructure, and Azure cloud networking.</p>
+                <div class="project-tag-pill">CAREER RECORD</div>
+                <h2 class="section-title">Career Progression &amp; Hands-On Experience</h2>
+                <p class="section-description">Chronological track record across ISP operations, enterprise on-premises infrastructure, and Azure cloud networking.</p>
             </div>
 
             <div class="timeline">
@@ -435,7 +721,8 @@
         <!-- Interactive Terminal CLI Section -->
         <section class="section" id="terminal">
             <div class="section-header">
-                <h2 class="section-title">Interactive Network Telemetry CLI</h2>
+                <div class="project-tag-pill">LIVE DIAGNOSTICS</div>
+                <h2 class="section-title">Interactive Network Diagnostics CLI</h2>
             </div>
 
             <div class="terminal-container">
@@ -456,7 +743,7 @@
                         <span class="t-green">✔ Azure Firewall Premium: ENFORCED (IDPS Active · Zero-Trust Policy)</span><br>
                         <span class="t-green">✔ Azure Private DNS Resolver: HEALTHY (Avg Response: 2.1ms)</span>
                     </div>
-                    <div class="term-line hint-line"><span class="t-prompt">PS C:\&gt;</span> <span class="t-muted">Type 'help', 'skills', 'certifications', 'experience', 'dns', or 'ping' below...</span></div>
+                    <div class="term-line hint-line"><span class="t-prompt">PS C:\&gt;</span> <span class="t-muted">Type 'help', 'services', 'skills', 'certifications', 'project', 'experience', 'dns', or 'ping' below...</span></div>
                 </div>
                 <div class="terminal-input-bar">
                     <span class="t-prompt">PS C:\&gt;</span>
@@ -468,19 +755,20 @@
         <!-- Contact Section -->
         <section class="section contact-section" id="contact">
             <div class="section-header">
+                <div class="project-tag-pill">CONTACT</div>
                 <h2 class="section-title">Let's Connect</h2>
             </div>
 
             <div class="contact-card">
-                <p class="contact-lead">Interested in discussing Senior Hybrid Cloud, Azure Infrastructure, or Enterprise Network Architecture roles?</p>
+                <p class="contact-lead">Looking for an Azure Network, Hybrid Infrastructure, or Enterprise Systems specialist?</p>
                 <a href="mailto:cmalonga.work@gmail.com" class="email-link">cmalonga.work@gmail.com</a>
                 
                 <div class="contact-links">
                     <a href="https://linkedin.com/in/corneille-malonga" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                        <i class="fa-brands fa-linkedin text-azure"></i> LinkedIn (Corneille Malonga)
+                        <i class="fa-brands fa-linkedin text-azure"></i> LinkedIn Profile
                     </a>
                     <a href="https://github.com/cmalonga" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                        <i class="fa-brands fa-github"></i> GitHub (@cmalonga)
+                        <i class="fa-brands fa-github"></i> GitHub Repositories
                     </a>
                 </div>
             </div>
@@ -491,7 +779,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <p>© 2026 Corneille Malonga · Senior Hybrid Network &amp; Azure Cloud Infrastructure Engineer</p>
+            <p>© 2026 Corneille Malonga · Azure Network &amp; Infrastructure Engineer</p>
             <p class="footer-sub">AZ-700 Certified · cmalonga.work@gmail.com</p>
         </div>
     </footer>
