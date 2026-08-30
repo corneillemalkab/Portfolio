@@ -1,6 +1,7 @@
 /**
  * ============================================================================
  * Corneille Malonga · Portfolio Logic & Interactivity (main.js)
+ * Aligned 100% with CV & LinkedIn Profile
  * ============================================================================
  */
 
@@ -51,33 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Animated Number Counters
-    const counters = document.querySelectorAll('.highlight-number[data-target]');
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = +entry.target.getAttribute('data-target');
-                let count = 0;
-                const speed = 20;
-                const updateCount = () => {
-                    const inc = target / speed;
-                    if (count < target) {
-                        count += inc;
-                        entry.target.innerText = Math.ceil(count);
-                        setTimeout(updateCount, 40);
-                    } else {
-                        entry.target.innerText = target;
-                    }
-                };
-                updateCount();
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    counters.forEach(counter => counterObserver.observe(counter));
-
-    // 4. Interactive Terminal CLI
+    // 3. Interactive Terminal CLI
     const cliInput = document.getElementById('cliInput');
     const terminalBody = document.getElementById('terminalBody');
 
@@ -101,24 +76,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 switch (cmd) {
                     case 'help':
                         response.innerHTML = `Available commands:<br>
-                        • <span class="t-cyan">services</span> - What technical services I deliver to organizations<br>
-                        • <span class="t-cyan">project</span> - Project AetherNet architecture &amp; endpoint map<br>
-                        • <span class="t-cyan">experience</span> - View career progression (ISP → On-Prem/Windows → Azure Cloud)<br>
-                        • <span class="t-cyan">skills</span> - List verified cloud, networking &amp; systems competencies<br>
-                        • <span class="t-cyan">certifications</span> - Display active credentials (AZ-700)<br>
-                        • <span class="t-cyan">dns</span> - Query Private Link DNS resolution lifecycle<br>
-                        • <span class="t-cyan">ping</span> - Test hybrid link latency between on-prem Hyper-V and Azure Hub<br>
-                        • <span class="t-cyan">contact</span> - Display email and verified LinkedIn/GitHub links<br>
+                        • <span class="t-cyan">experience</span> - View career history (LTM, HCLTech, Microcom)<br>
+                        • <span class="t-cyan">skills</span> - List diagnostic tools, cloud, routing &amp; security skills<br>
+                        • <span class="t-cyan">certifications</span> - Display Microsoft AZ-700 &amp; Cisco credentials<br>
+                        • <span class="t-cyan">education</span> - Display BSc in Computer Science details<br>
+                        • <span class="t-cyan">project</span> - View Project AetherNet architecture &amp; endpoint map<br>
+                        • <span class="t-cyan">contact</span> - Display email, phone &amp; verified LinkedIn/GitHub links<br>
                         • <span class="t-cyan">clear</span> - Clear terminal window`;
                         break;
 
-                    case 'services':
-                    case 'offer':
-                        response.innerHTML = `<span class="t-green">1. Hybrid Network Design:</span> Redundant IPsec VPNs, ExpressRoute, BGP dynamic routing failover.<br>
-                        <span class="t-green">2. Azure Landing Zones:</span> Hub-and-Spoke VNets, Azure Firewall Premium IDPS, UDR forced tunneling.<br>
-                        <span class="t-green">3. Private Link &amp; DNS:</span> Azure Private DNS Resolver integrated with on-prem Windows DNS.<br>
-                        <span class="t-green">4. Diagnostics &amp; Wireshark:</span> Root-cause resolution of asymmetric routing, MTU, and DNS loops.<br>
-                        <span class="t-green">5. Windows &amp; Hyper-V:</span> Active Directory, DNS/DHCP, RRAS gateways, and SET virtual switches.`;
+                    case 'experience':
+                        response.innerHTML = `<span class="t-green">Mar 2025 — Present:</span> Cloud &amp; Infrastructure Engineer (Azure &amp; Windows Net) @ LTM, Krakow<br>
+                        <span class="t-green">Mar 2024 — Feb 2025:</span> Cloud &amp; Infrastructure Engineer (Azure Net) @ LTM, Krakow<br>
+                        <span class="t-green">Aug 2021 — Feb 2024:</span> Senior IT Analyst @ HCLTech, Krakow (99.95% uptime, 1000+ users)<br>
+                        <span class="t-green">Feb 2017 — Jul 2018:</span> Junior Network Engineer @ Microcom S.A.R.L., DR Congo (OSPF, VLANs, STP)`;
+                        break;
+
+                    case 'skills':
+                        response.innerHTML = `<span class="t-green">Diagnostics:</span> Azure Network Watcher, KQL, Grafana, Wireshark, tcpdump, Packet Capture<br>
+                        <span class="t-green">Cloud &amp; Hybrid:</span> Azure, ExpressRoute, Virtual WAN, VPN Gateway, Azure Firewall, Check Point NVAs<br>
+                        <span class="t-green">Routing &amp; Switching:</span> BGP, OSPF, EIGRP, VLANs, VXLAN, STP, NAT, ACLs, QoS, DNS, DHCP<br>
+                        <span class="t-green">Identity &amp; Security:</span> Cisco ISE, RADIUS, 802.1X, Entra ID, RBAC, Conditional Access, NSGs`;
+                        break;
+
+                    case 'certifications':
+                        response.innerHTML = `<span class="t-green">✔ Microsoft Certified: Azure Network Engineer Associate (AZ-700)</span><br>
+                        <span class="t-cyan">✔ Cisco: Network Support &amp; Security</span><br>
+                        <span class="t-cyan">✔ Cisco: Network Devices &amp; Configuration</span>`;
+                        break;
+
+                    case 'education':
+                        response.innerHTML = `<span class="t-green">BSc in Computer Science</span><br>
+                        Vistula University of Finance and Business · Warsaw, Poland (Sep 2019 — Mar 2023)`;
                         break;
 
                     case 'project':
@@ -130,41 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="t-green">Spokes (10.101 &amp; 10.102):</span> App VMSS (10.101.1.0/24) · Data Private Endpoints (10.102.1.0/24 · 0 Public IPs)`;
                         break;
 
-                    case 'experience':
-                        response.innerHTML = `<span class="t-green">2024 — Present:</span> Senior Azure Cloud &amp; Hybrid Network Engineer (VNets, Firewall, S2S VPN, ExpressRoute, Hyper-V, Entra ID)<br>
-                        <span class="t-green">2021 — 2024:</span> On-Premises Network, Windows Identity &amp; Governance Engineer (Wired/Wireless, 802.1X, AD DS, DNS/DHCP, GPO, WFAS)<br>
-                        <span class="t-green">Early Career:</span> Junior Network Engineer @ Internet Service Provider (BGP/OSPF, Edge Routers, IPAM, NOC)`;
-                        break;
-
-                    case 'skills':
-                        response.innerHTML = `<span class="t-green">Azure Cloud (AZ-700):</span> VNets, Azure Firewall Premium, Private DNS Resolver, Private Endpoints, ExpressRoute, S2S VPN, AppGW WAF v2, Compute, Storage, Entra ID<br>
-                        <span class="t-green">On-Premises Networking:</span> BGP, OSPF, VLANs, 802.1Q, STP, 802.1X, RADIUS (NPS), IPsec IKEv2, Wireshark, Subnetting/VLSM<br>
-                        <span class="t-green">Systems &amp; Virtualization:</span> Windows Server 2016-2022, Active Directory, DNS/DHCP, Hyper-V Virtual Switch, NIC Teaming, RRAS, PowerShell`;
-                        break;
-
-                    case 'certifications':
-                        response.innerHTML = `<span class="t-green">✔ Microsoft Certified: Azure Network Engineer Associate (AZ-700)</span><br>
-                        <span class="t-cyan">✔ Enterprise On-Premises &amp; Windows Networking Foundations</span>`;
-                        break;
-
-                    case 'dns':
-                        response.innerHTML = `Query: corp-sql.privatelink.database.windows.net<br>
-                        Resolver: 10.100.2.4 (Azure Private DNS Resolver Inbound Endpoint)<br>
-                        Target IP: 10.102.1.18 (PaaS Private Endpoint inside 10.102.1.0/24)<br>
-                        <span class="t-green">Status: Success (Latency: 2.1ms · 0 Public IP Exposure)</span>`;
-                        break;
-
-                    case 'ping':
-                        response.innerHTML = `Pinging Azure Hub Firewall (10.100.1.4) from Hyper-V Datacenter (10.0.10.10):<br>
-                        Reply from 10.100.1.4: bytes=32 time=11ms TTL=126<br>
-                        Reply from 10.100.1.4: bytes=32 time=12ms TTL=126<br>
-                        <span class="t-green">Ping statistics: 2 packets transmitted, 0% packet loss</span>`;
-                        break;
-
                     case 'contact':
-                        response.innerHTML = `Email: <span class="t-green">cmalonga.work@gmail.com</span><br>
-                        GitHub: <span class="t-cyan">https://github.com/cmalonga</span><br>
-                        LinkedIn: <span class="t-cyan">https://linkedin.com/in/corneille-malonga</span>`;
+                        response.innerHTML = `Location: <span class="t-green">Krakow, Poland</span><br>
+                        Phone: <span class="t-green">+48 579 227 833</span><br>
+                        Email: <span class="t-green">cmalonga.work@gmail.com</span><br>
+                        LinkedIn: <span class="t-cyan">https://linkedin.com/in/corneille-malonga/</span><br>
+                        GitHub: <span class="t-cyan">https://github.com/cmalonga</span>`;
                         break;
 
                     case 'clear':
